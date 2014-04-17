@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ec0cab0cf1a4f1594a63ab3ce68206, type: 3}
+  m_Name: set1
+  m_EditorClassIdentifier: 
+  tileset: {fileID: 11400000, guid: 4d8336eeddd78e544a90079a47cb7d02, type: 2}
+  rules:
+  - name: New Rule
+    visible: 1
+    size: {x: 1, y: 1}
+    source:
+      name: Source
+      selectedTilesList:
+      - id: -1
+        rotation: 0
+        flippedHorizontally: 0
+        flippedVertically: 0
+      selectedTiles: 
+      selectedTilesWidth: 1
+      selectedTile:
+        id: 0
+        rotation: 0
+        flippedHorizontally: 0
+        flippedVertically: 0
+      selectedTileEnd:
+        id: 0
+        rotation: 0
+        flippedHorizontally: 0
+        flippedVertically: 0
+      tilesPicked: 0
+    destination:
+      name: Destination
+      selectedTilesList:
+      - id: -1
+        rotation: 0
+        flippedHorizontally: 0
+        flippedVertically: 0
+      selectedTiles: 
+      selectedTilesWidth: 1
+      selectedTile:
+        id: 0
+        rotation: 0
+        flippedHorizontally: 0
+        flippedVertically: 0
+      selectedTileEnd:
+        id: 0
+        rotation: 0
+        flippedHorizontally: 0
+        flippedVertically: 0
+      tilesPicked: 0
+    active: 1
+    chance: 100
+  entireMap: 1
+  area:
+    serializedVersion: 2
+    x: 2
+    y: 2
+    width: 10
+    height: 10
