@@ -14,26 +14,7 @@ AnimationClip:
   m_CompressedRotationCurves: []
   m_PositionCurves: []
   m_ScaleCurves: []
-  m_FloatCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 5000
-        inSlope: -1007.07074
-        outSlope: -1007.07074
-        tangentMode: 10
-      - time: 4.94999981
-        value: 15
-        inSlope: -1007.07074
-        outSlope: -1007.07074
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: orthographic size
-    path: 
-    classID: 20
-    script: {fileID: 0}
+  m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -43,7 +24,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 4.94999981
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -57,25 +38,6 @@ AnimationClip:
     m_KeepOriginalPositionXZ: 0
     m_HeightFromFeet: 0
     m_Mirror: 0
-  m_EditorCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 5000
-        inSlope: -1007.07074
-        outSlope: -1007.07074
-        tangentMode: 10
-      - time: 4.94999981
-        value: 15
-        inSlope: -1007.07074
-        outSlope: -1007.07074
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: orthographic size
-    path: 
-    classID: 20
-    script: {fileID: 0}
+  m_EditorCurves: []
   m_EulerEditorCurves: []
   m_Events: []

@@ -29,6 +29,8 @@ public class PlayerControl : MonoBehaviour
     private string layerName;
     private GameObject player;
 
+    public bool enableControl = true;
+
     void Start()
     {
 
@@ -49,57 +51,60 @@ public class PlayerControl : MonoBehaviour
 
 	void Update()
 	{
-
-        if(Input.GetButtonDown("Jump") && !ladder )
+        if (enableControl)
         {
 
-		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer(layerName));
-
-		if(grounded)
-			jump = true;
-        }
-
-        if (Input.GetButton("Use"))
-        {
-        //    Camera camera = GameObject.FindGameObjectWithTag("MainCamera").camera;
-        //    FXPostProcess[] list = camera.GetComponents<FXPostProcess>();
-        //    list[list.Length - 1].enabled = !list[list.Length - 1].enabled;
-        }
-
-        if (Input.GetButtonDown("Transfer") && GetComponent<PlayerState>().AllowTransfer && GetComponent<LevelRotation>().rotating == false)
-        {
-            if (playerState.AllowToFirst == true)
-            {
-                
-                if (playerState.CurrentState == State.World2)
-                {
-                    Debug.Log("to 1");
-                    ChangeStateToWorld1();
-                    goto OutOf;
-                }
-
-
-            }
-            
-            if (playerState.AllowToSecond == true)
+            if (Input.GetButtonDown("Jump") && !ladder)
             {
 
+                grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer(layerName));
 
-                if (playerState.CurrentState == State.World1)
-                {
-                    Debug.Log("to 2");
-                    ChangeStateToWorld2();
-                }
-
+                if (grounded)
+                    jump = true;
             }
 
-        OutOf:
-            int a = 0;
-        }
+            if (Input.GetButton("Use"))
+            {
+                //    Camera camera = GameObject.FindGameObjectWithTag("MainCamera").camera;
+                //    FXPostProcess[] list = camera.GetComponents<FXPostProcess>();
+                //    list[list.Length - 1].enabled = !list[list.Length - 1].enabled;
+            }
 
-        if (Input.GetButtonDown("Use"))
-        {
+            if (Input.GetButtonDown("Transfer") && GetComponent<PlayerState>().AllowTransfer && GetComponent<LevelRotation>().rotating == false)
+            {
+                if (playerState.AllowToFirst == true)
+                {
 
+                    if (playerState.CurrentState == State.World2)
+                    {
+                        Debug.Log("to 1");
+                        ChangeStateToWorld1();
+                        goto OutOf;
+                    }
+
+
+                }
+
+                if (playerState.AllowToSecond == true)
+                {
+
+
+                    if (playerState.CurrentState == State.World1)
+                    {
+                        Debug.Log("to 2");
+                        ChangeStateToWorld2();
+                    }
+
+                }
+
+            OutOf:
+                int a = 0;
+            }
+
+            if (Input.GetButtonDown("Use"))
+            {
+
+            }
         }
 	
 	}
@@ -107,53 +112,56 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		// Cache the horizontal input.
-		float h = Input.GetAxis("Horizontal");
-        float l = Input.GetAxis("Vertical");
-
-		// The Speed animator parameter is set to the absolute value of the horizontal input.
-		anim.SetFloat("Speed", Mathf.Abs(h));
-
-		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
-
-        if (ladder)
+        if (enableControl)
         {
-            rigidbody2D.gravityScale = 0;
-            rigidbody2D.velocity = new Vector2(0, 0);
-        }
-        else
-        {
-            rigidbody2D.gravityScale = 1;
 
-        }
-			// ... add a force to the player.
-            switch(GetComponent<LevelRotation>().currentRotationState)
+            // Cache the horizontal input.
+            float h = Input.GetAxis("Horizontal");
+            float l = Input.GetAxis("Vertical");
+
+            // The Speed animator parameter is set to the absolute value of the horizontal input.
+            anim.SetFloat("Speed", Mathf.Abs(h));
+
+            // If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
+
+            if (ladder)
+            {
+                rigidbody2D.gravityScale = 0;
+                rigidbody2D.velocity = new Vector2(0, 0);
+            }
+            else
+            {
+                rigidbody2D.gravityScale = 1;
+
+            }
+            // ... add a force to the player.
+            switch (GetComponent<LevelRotation>().currentRotationState)
             {
                 case RotationState.left_0:
                     if (h * rigidbody2D.velocity.x < maxSpeed)
-			        rigidbody2D.AddForce(Vector2.right * h * moveForce);
+                        rigidbody2D.AddForce(Vector2.right * h * moveForce);
 
-                    if (ladder && l * rigidbody2D.velocity.y < maxSpeed*2)
+                    if (ladder && l * rigidbody2D.velocity.y < maxSpeed * 2)
                         rigidbody2D.AddForce(Vector2.up * l * moveForce);
 
                     break;
                 case RotationState.left_180:
                     if (-h * rigidbody2D.velocity.x < maxSpeed)
-                    rigidbody2D.AddForce(-Vector2.right * h * moveForce);
+                        rigidbody2D.AddForce(-Vector2.right * h * moveForce);
 
                     if (ladder && l * rigidbody2D.velocity.y < maxSpeed * 2)
                         rigidbody2D.AddForce(-Vector2.up * l * moveForce);
                     break;
                 case RotationState.left_90:
                     if (h * rigidbody2D.velocity.y < maxSpeed)
-                    rigidbody2D.AddForce(Vector2.up * h * moveForce);
+                        rigidbody2D.AddForce(Vector2.up * h * moveForce);
 
                     if (ladder && l * rigidbody2D.velocity.y < maxSpeed * 2)
                         rigidbody2D.AddForce(-Vector2.right * l * moveForce);
                     break;
                 case RotationState.left_270:
                     if (-h * rigidbody2D.velocity.y < maxSpeed)
-                    rigidbody2D.AddForce(-Vector2.up * h * moveForce);
+                        rigidbody2D.AddForce(-Vector2.up * h * moveForce);
 
                     if (ladder && l * rigidbody2D.velocity.y < maxSpeed * 2)
                         rigidbody2D.AddForce(Vector2.right * l * moveForce);
@@ -163,79 +171,80 @@ public class PlayerControl : MonoBehaviour
 
 
 
-		// If the player's horizontal velocity is greater than the maxSpeed...
-         switch(GetComponent<LevelRotation>().currentRotationState)
+            // If the player's horizontal velocity is greater than the maxSpeed...
+            switch (GetComponent<LevelRotation>().currentRotationState)
             {
                 case RotationState.left_0:
-		            if(Mathf.Abs(rigidbody2D.velocity.x) > maxSpeed)
-			        // ... set the player's velocity to the maxSpeed in the x axis.
-			        rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
-                break;
-                case RotationState.left_180:
-                if (Mathf.Abs(rigidbody2D.velocity.x) > maxSpeed)
-                    // ... set the player's velocity to the maxSpeed in the x axis.
-                    rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
-                break;
-                case RotationState.left_90:
-                if (Mathf.Abs(rigidbody2D.velocity.y) > maxSpeed)
-                    // ... set the player's velocity to the maxSpeed in the x axis.
-                    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, Mathf.Sign(rigidbody2D.velocity.y) * maxSpeed);
-                break;
-                case RotationState.left_270:
-                if (Mathf.Abs(rigidbody2D.velocity.y) > maxSpeed)
-                    // ... set the player's velocity to the maxSpeed in the x axis.
-                    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, Mathf.Sign(rigidbody2D.velocity.y) * maxSpeed);
-                break;
-            }
-
-         if (ladder)
-         {
- 
-         }
-
-		// If the input is moving the player right and the player is facing left...
-		if(h > 0 && !facingRight)
-			// ... flip the player.
-			Flip();
-		// Otherwise if the input is moving the player left and the player is facing right...
-		else if(h < 0 && facingRight)
-			// ... flip the player.
-			Flip();
-
-		// If the player should jump...
-		if(jump && !ladder)
-		{
-			// Set the Jump animator trigger parameter.
-			anim.SetTrigger("Jump");
-
-			// Play a random jump audio clip.
-			int i = Random.Range(0, jumpClips.Length);
-			//AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
-
-			// Add a vertical force to the player.
-            switch(GetComponent<LevelRotation>().currentRotationState)
-            {
-                case RotationState.left_0:
-			        rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+                    if (Mathf.Abs(rigidbody2D.velocity.x) > maxSpeed)
+                        // ... set the player's velocity to the maxSpeed in the x axis.
+                        rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
                     break;
                 case RotationState.left_180:
-                    rigidbody2D.AddForce(new Vector2(0f, -jumpForce));
+                    if (Mathf.Abs(rigidbody2D.velocity.x) > maxSpeed)
+                        // ... set the player's velocity to the maxSpeed in the x axis.
+                        rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
                     break;
                 case RotationState.left_90:
-                    rigidbody2D.AddForce(new Vector2(-jumpForce, 0f));
+                    if (Mathf.Abs(rigidbody2D.velocity.y) > maxSpeed)
+                        // ... set the player's velocity to the maxSpeed in the x axis.
+                        rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, Mathf.Sign(rigidbody2D.velocity.y) * maxSpeed);
                     break;
                 case RotationState.left_270:
-                    rigidbody2D.AddForce(new Vector2(jumpForce, 0f));
+                    if (Mathf.Abs(rigidbody2D.velocity.y) > maxSpeed)
+                        // ... set the player's velocity to the maxSpeed in the x axis.
+                        rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, Mathf.Sign(rigidbody2D.velocity.y) * maxSpeed);
                     break;
             }
 
-			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
-			jump = false;
-		}
+            if (ladder)
+            {
 
-        
+            }
 
-        float transfer = Input.GetAxis("Transfer");
+            // If the input is moving the player right and the player is facing left...
+            if (h > 0 && !facingRight)
+                // ... flip the player.
+                Flip();
+            // Otherwise if the input is moving the player left and the player is facing right...
+            else if (h < 0 && facingRight)
+                // ... flip the player.
+                Flip();
+
+            // If the player should jump...
+            if (jump && !ladder)
+            {
+                // Set the Jump animator trigger parameter.
+                anim.SetTrigger("Jump");
+
+                // Play a random jump audio clip.
+                int i = Random.Range(0, jumpClips.Length);
+                //AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
+
+                // Add a vertical force to the player.
+                switch (GetComponent<LevelRotation>().currentRotationState)
+                {
+                    case RotationState.left_0:
+                        rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+                        break;
+                    case RotationState.left_180:
+                        rigidbody2D.AddForce(new Vector2(0f, -jumpForce));
+                        break;
+                    case RotationState.left_90:
+                        rigidbody2D.AddForce(new Vector2(-jumpForce, 0f));
+                        break;
+                    case RotationState.left_270:
+                        rigidbody2D.AddForce(new Vector2(jumpForce, 0f));
+                        break;
+                }
+
+                // Make sure the player can't jump again until the jump conditions from Update are satisfied.
+                jump = false;
+            }
+
+
+
+            float transfer = Input.GetAxis("Transfer");
+        }
 
        }
 	

@@ -28,15 +28,15 @@ Material:
       data:
         first:
           name: _Bias
-        second: -.25
+        second: -.25999999
       data:
         first:
           name: _Shift
-        second: 62.2641487
+        second: 16.037735
       data:
         first:
           name: _BlurSteps
-        second: 5.66981363
+        second: 1
       data:
         first:
           name: _Red

@@ -113,6 +113,8 @@
      <Compile Include="Assets\Scripts\Stranger\ToSecondTrigger.cs" />
      <Compile Include="Assets\Scripts\Stranger\TriggerOffCallback.cs" />
      <Compile Include="Assets\Scripts\Stranger\WorldState.cs" />
+     <Compile Include="Assets\Scripts\sound\MasterBus.cs" />
+     <Compile Include="Assets\Scripts\stasis\WhitePoint.cs" />
      <Compile Include="Assets\Sprites\Camera\CameraFocus.cs" />
      <Compile Include="Assets\Sprites\Camera\CameraScrolling.cs" />
      <Compile Include="Assets\Sprites\Camera\CameraTargetAttributes.cs" />

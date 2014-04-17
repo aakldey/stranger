@@ -27,6 +27,7 @@ TagManager:
   - PlayerPivot
   - PlayerTrigger
   - Ladder
+  - Sounds
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

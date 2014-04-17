@@ -56,136 +56,139 @@ public class LevelRotation : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-        player.transform.rotation = camera.transform.rotation;
-       // player.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
-		if (rotating)
-		{
-			camera.transform.Rotate(new Vector3(0,0,1),angle/(time/Time.deltaTime));
-            player.transform.rotation = camera.transform.rotation;
-			dt+=Time.deltaTime;
-			if (dt > time)
-			{
-				rotating = false; 
-				dt = 0;
-				camera.transform.rotation = lastquat*Quaternion.AngleAxis(angle,new Vector3(0,0,1));
-
-                player.transform.rotation = camera.transform.rotation;
-                time = time2 / double_rotation_time_k;
-			}
-		}
-		
-		if (Input.GetKeyDown (KeyCode.A) && !rotating && GetComponent<PlayerState>().AllowRotation && GetComponent<PlayerState>().CurrentState == State.World2) // rotate left
-		{
-			index-=1;
-			if (index == -1)
-				index = 3;
-			currentRotationState = rotationState[index];
-			rotating = true;
-			lastquat = camera.transform.rotation;
-			angle = -90;
-			
-			switch (currentRotationState)
-			{
-			case RotationState.left_0:
-                    Physics2D.gravity = new Vector2(0, -30);
-				break;
-			case RotationState.left_90:
-                Physics2D.gravity = new Vector2(30, 0);
-				break;
-			case RotationState.left_180:
-                Physics2D.gravity = new Vector2(0, 30);
-				break;
-			case RotationState.left_270:
-                Physics2D.gravity = new Vector2(-30, 0);
-				break;
-					
-			}
-			
-			//player.Rect.Rotation-=Mathf.PI/2;
-			
-			//foreach (Body b in FSWorldComponent.PhysicsWorld.BodyList)
-			//{
-			//	b.Awake = true;
-		//	}
-		}
-		if (Input.GetKeyDown (KeyCode.D) &&!rotating && GetComponent<PlayerState>().AllowRotation && GetComponent<PlayerState>().CurrentState == State.World2) // rotate left
-		{
-			index+=1;
-			if (index == 4)
-				index = 0;
-			currentRotationState = rotationState[index];
-			rotating = true;
-			angle = 90;
-			lastquat = camera.transform.rotation;
-			switch (currentRotationState)
-			{
-			case RotationState.left_0:
-                    Physics2D.gravity = new Vector2(0, -30);
-				break;
-			case RotationState.left_90:
-                Physics2D.gravity = new Vector2(30, 0);
-				break;
-			case RotationState.left_180:
-                Physics2D.gravity = new Vector2(0, 30);
-				break;
-			case RotationState.left_270:
-                Physics2D.gravity = new Vector2(-30, 0);
-				break;
-					
-			}
-			//player.Rect.Rotation+=Mathf.PI/2;
-			
-		//	foreach (Body b in FSWorldComponent.PhysicsWorld.BodyList)
-			//{
-		//		b.Awake = true;
-		//	}
-		}
-
-        if (Input.GetKeyDown(KeyCode.W) && !rotating && GetComponent<PlayerState>().AllowRotation && GetComponent<PlayerState>().CurrentState == State.World2) // rotate left
+        // TO DO - зарефакторить этот метод
+        if (GetComponent<PlayerControl>().enableControl)
         {
-            index += 2;
-            if (index == 4)
-                index = 0;
-            if (index == 5)
-                index = 1;
-
-            time = time2;
-
-            currentRotationState = rotationState[index];
-            rotating = true;
-            angle = 180;
-            lastquat = camera.transform.rotation;
-            switch (currentRotationState)
+            player.transform.rotation = camera.transform.rotation;
+            // player.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+            if (rotating)
             {
-                case RotationState.left_0:
-                    Physics2D.gravity = new Vector2(0, -30);
-                    break;
-                case RotationState.left_90:
-                    Physics2D.gravity = new Vector2(30, 0);
-                    break;
-                case RotationState.left_180:
-                    Physics2D.gravity = new Vector2(0, 30);
-                    break;
-                case RotationState.left_270:
-                    Physics2D.gravity = new Vector2(-30, 0);
-                    break;
+                camera.transform.Rotate(new Vector3(0, 0, 1), angle / (time / Time.deltaTime));
+                player.transform.rotation = camera.transform.rotation;
+                dt += Time.deltaTime;
+                if (dt > time)
+                {
+                    rotating = false;
+                    dt = 0;
+                    camera.transform.rotation = lastquat * Quaternion.AngleAxis(angle, new Vector3(0, 0, 1));
+
+                    player.transform.rotation = camera.transform.rotation;
+                    time = time2 / double_rotation_time_k;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.A) && !rotating && GetComponent<PlayerState>().AllowRotation && GetComponent<PlayerState>().CurrentState == State.World2) // rotate left
+            {
+                index -= 1;
+                if (index == -1)
+                    index = 3;
+                currentRotationState = rotationState[index];
+                rotating = true;
+                lastquat = camera.transform.rotation;
+                angle = -90;
+
+                switch (currentRotationState)
+                {
+                    case RotationState.left_0:
+                        Physics2D.gravity = new Vector2(0, -30);
+                        break;
+                    case RotationState.left_90:
+                        Physics2D.gravity = new Vector2(30, 0);
+                        break;
+                    case RotationState.left_180:
+                        Physics2D.gravity = new Vector2(0, 30);
+                        break;
+                    case RotationState.left_270:
+                        Physics2D.gravity = new Vector2(-30, 0);
+                        break;
+
+                }
+
+                //player.Rect.Rotation-=Mathf.PI/2;
+
+                //foreach (Body b in FSWorldComponent.PhysicsWorld.BodyList)
+                //{
+                //	b.Awake = true;
+                //	}
+            }
+            if (Input.GetKeyDown(KeyCode.D) && !rotating && GetComponent<PlayerState>().AllowRotation && GetComponent<PlayerState>().CurrentState == State.World2) // rotate left
+            {
+                index += 1;
+                if (index == 4)
+                    index = 0;
+                currentRotationState = rotationState[index];
+                rotating = true;
+                angle = 90;
+                lastquat = camera.transform.rotation;
+                switch (currentRotationState)
+                {
+                    case RotationState.left_0:
+                        Physics2D.gravity = new Vector2(0, -30);
+                        break;
+                    case RotationState.left_90:
+                        Physics2D.gravity = new Vector2(30, 0);
+                        break;
+                    case RotationState.left_180:
+                        Physics2D.gravity = new Vector2(0, 30);
+                        break;
+                    case RotationState.left_270:
+                        Physics2D.gravity = new Vector2(-30, 0);
+                        break;
+
+                }
+                //player.Rect.Rotation+=Mathf.PI/2;
+
+                //	foreach (Body b in FSWorldComponent.PhysicsWorld.BodyList)
+                //{
+                //		b.Awake = true;
+                //	}
+            }
+
+            if (Input.GetKeyDown(KeyCode.W) && !rotating && GetComponent<PlayerState>().AllowRotation && GetComponent<PlayerState>().CurrentState == State.World2) // rotate left
+            {
+                index += 2;
+                if (index == 4)
+                    index = 0;
+                if (index == 5)
+                    index = 1;
+
+                time = time2;
+
+                currentRotationState = rotationState[index];
+                rotating = true;
+                angle = 180;
+                lastquat = camera.transform.rotation;
+                switch (currentRotationState)
+                {
+                    case RotationState.left_0:
+                        Physics2D.gravity = new Vector2(0, -30);
+                        break;
+                    case RotationState.left_90:
+                        Physics2D.gravity = new Vector2(30, 0);
+                        break;
+                    case RotationState.left_180:
+                        Physics2D.gravity = new Vector2(0, 30);
+                        break;
+                    case RotationState.left_270:
+                        Physics2D.gravity = new Vector2(-30, 0);
+                        break;
+
+                }
+                //player.Rect.Rotation+=Mathf.PI/2;
+
+                //	foreach (Body b in FSWorldComponent.PhysicsWorld.BodyList)
+                //{
+                //		b.Awake = true;
+                //	}
+            }
+
+            if (Input.GetKeyDown(KeyCode.S) && rotating == false)
+            {
+                ResetRotation();
 
             }
-            //player.Rect.Rotation+=Mathf.PI/2;
 
-            //	foreach (Body b in FSWorldComponent.PhysicsWorld.BodyList)
-            //{
-            //		b.Awake = true;
-            //	}
+
         }
-		
-		if (Input.GetKeyDown (KeyCode.S) && rotating == false) 
-		{
-			ResetRotation();	
-		
-		}
-		
-		
-		
 	}
 }
