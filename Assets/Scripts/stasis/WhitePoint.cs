@@ -4,6 +4,12 @@ using System.Collections;
 public class WhitePoint : MonoBehaviour {
     int num = 0;
     bool done = false;
+
+    public GameObject text1;
+    public GameObject text2;
+
+    public GameObject playerSprite;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -13,7 +19,7 @@ public class WhitePoint : MonoBehaviour {
 	void Update () {
         if (!done)
         {
-
+            
             if (Input.anyKeyDown)
             {
                 if (num == 0)
@@ -22,16 +28,18 @@ public class WhitePoint : MonoBehaviour {
                     num++;
                     GameObject.FindGameObjectWithTag("Sounds").GetComponent<MasterBus>().list[num - 1].Stop();
                     GameObject.FindGameObjectWithTag("Sounds").GetComponent<MasterBus>().list[num].volume = 1;
+                    text1.GetComponent<Animator>().SetBool("Trigger", false);
 
                 }
                 else if (num == 1)
                 {
-                    GetComponent<SpriteRenderer>().sortingLayerName = "Background";
-                    Camera.main.GetComponent<Animator>().SetBool("Trigger", true);
-                    num++;
+                    text2.GetComponent<Animator>().SetBool("Trigger", true);
                     GameObject.FindGameObjectWithTag("Sounds").GetComponent<MasterBus>().list[num - 1].volume = 0;
                     GameObject.FindGameObjectWithTag("Sounds").GetComponent<MasterBus>().list[num].volume = 1;
                     done = true;
+
+                    playerSprite.GetComponent<Animator>().SetBool("Trigger", true);
+                    
                 }
             }
         }

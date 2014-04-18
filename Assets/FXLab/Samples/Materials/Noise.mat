@@ -25,17 +25,17 @@ Material:
           name: _NoiseMap
         second:
           m_Texture: {fileID: 2800000, guid: 28f9ca85563ec1949a3e274dfde21772, type: 3}
-          m_Scale: {x: 10, y: 10}
+          m_Scale: {x: 5, y: 5}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _NoiseStrength
-        second: .428571433
+        second: .696428597
       data:
         first:
           name: _NoiseIllumination
-        second: 1.36607146
+        second: 1.5
     m_Colors:
       data:
         first:

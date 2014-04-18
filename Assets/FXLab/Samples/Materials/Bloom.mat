@@ -38,19 +38,19 @@ Material:
       data:
         first:
           name: _Bias
-        second: -1.00999999
+        second: 12.25
       data:
         first:
           name: _Brightness
-        second: -11
+        second: -10.5699997
       data:
         first:
           name: _BlurRange
-        second: 3.96000004
+        second: -19.7199993
       data:
         first:
           name: _Contrast
-        second: 4.46000004
+        second: 4
     m_Colors:
       data:
         first:

@@ -11,7 +11,7 @@ Platform assembly: D:\!game_project\stranger_2014\stranger_Data\Managed\UnityEng
 Loading D:\!game_project\stranger_2014\stranger_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: D:\!game_project\stranger_2014\stranger_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading D:\!game_project\stranger_2014\stranger_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.102 seconds
+- Completed reload, in  0.068 seconds
 desktop: 1600x1200 60Hz; virtual: 1600x1200 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -25,21 +25,9 @@ The exception above was expected, ignore it.
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
 Platform assembly: D:\!game_project\stranger_2014\stranger_Data\Managed\System.dll (this message is harmless)
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: still lost
-Skipped frame because GfxDevice is in invalid state (device lost)
- 
-(Filename:  Line: 1650)
+UnloadTime: 5.815886 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: needs reset, doing it
-FullResetD3DDevice
-ResetD3DDevice
-dev->Reset
-D3Dwindow device not lost anymore
-UnloadTime: 19.173817 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 2863.
-Total: 10.300754 ms (FindLiveObjects: 0.314937 ms CreateObjectMapping: 0.048183 ms MarkObjects: 9.202662 ms  DeleteObjects: 0.127092 ms)
+Unloading 34 unused Assets to reduce memory usage. Loaded Objects now: 286.
+Total: 1.692706 ms (FindLiveObjects: 0.031424 ms CreateObjectMapping: 0.027583 ms MarkObjects: 0.301321 ms  DeleteObjects: 0.269897 ms)
 

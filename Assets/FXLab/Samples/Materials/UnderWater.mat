@@ -44,6 +44,10 @@ Material:
     m_Floats:
       data:
         first:
+          name: _BlurRange
+        second: 20
+      data:
+        first:
           name: _DistortionStrength
         second: 2
       data:
@@ -60,10 +64,6 @@ Material:
         second: 100
       data:
         first:
-          name: _BlurRange
-        second: 20
-      data:
-        first:
           name: _FocusDistance
         second: 250
       data:
@@ -74,7 +74,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0, g: .592156887, b: 1, a: .00392156886}
+        second: {r: 1, g: 1, b: 1, a: .00392156886}
       data:
         first:
           name: _DepthColor

@@ -69,12 +69,12 @@ Material:
         second: 18.5878296
       data:
         first:
-          name: _DistortionStrength
-        second: 5
-      data:
-        first:
           name: _Specular
         second: .206896544
+      data:
+        first:
+          name: _DistortionStrength
+        second: 5
       data:
         first:
           name: _FresnelNormalStrength
@@ -93,11 +93,11 @@ Material:
         second: .100000001
       data:
         first:
-          name: _BumpStrength
+          name: _DispersionFactor
         second: 1
       data:
         first:
-          name: _DispersionFactor
+          name: _BumpStrength
         second: 1
       data:
         first:
