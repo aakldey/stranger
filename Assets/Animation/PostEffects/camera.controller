@@ -33,7 +33,7 @@ Transition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_SrcState: {fileID: 110200000}
-  m_DstState: {fileID: 110252901}
+  m_DstState: {fileID: 110254759}
   m_TransitionDuration: .25
   m_TransitionOffset: 0
   m_Conditions:
@@ -59,6 +59,28 @@ Transition:
     m_ConditionEvent: Trigger
     m_EventTreshold: 0
     m_ExitTime: .963503659
+  - m_ConditionMode: 2
+    m_ConditionEvent: Trigger
+    m_EventTreshold: 0
+    m_ExitTime: .963503659
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+--- !u!1101 &110159488
+Transition:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110254759}
+  m_DstState: {fileID: 110252901}
+  m_TransitionDuration: .102040812
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: .897959173
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -73,7 +95,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 5a89d6de4b8c2a04b96640cdce60bd42, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 120, y: 228, z: 0}
+  m_Position: {x: -12, y: 240, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -92,6 +114,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110254759
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: CameraBlur
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: cca049de0abee824a8281d6ed2c58c25, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 155, y: 293, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1107 &110700000
 StateMachine:
   serializedVersion: 2
@@ -103,9 +140,14 @@ StateMachine:
   m_States:
   - {fileID: 110252901}
   - {fileID: 110200000}
+  - {fileID: 110254759}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
+    data:
+      first: {fileID: 110254759}
+      second:
+      - {fileID: 110159488}
     data:
       first: {fileID: 110200000}
       second:

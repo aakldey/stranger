@@ -24,19 +24,19 @@ Material:
       data:
         first:
           name: _Size
-        second: 1.39999998
+        second: .920000017
       data:
         first:
           name: _Bias
-        second: .460000008
+        second: -.219999999
       data:
         first:
           name: _Shift
-        second: 77.35849
+        second: 10.3773575
       data:
         first:
           name: _BlurSteps
-        second: 7.65546131
+        second: 4.7358489
       data:
         first:
           name: _Red

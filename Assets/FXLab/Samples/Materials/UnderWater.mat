@@ -39,17 +39,17 @@ Material:
           name: _DistortionMap
         second:
           m_Texture: {fileID: 2800000, guid: 80b8fa911d147d146a906845cc43b740, type: 3}
-          m_Scale: {x: .25, y: .25}
+          m_Scale: {x: .400000006, y: .400000006}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _BlurRange
-        second: 20
+        second: 1
       data:
         first:
           name: _DistortionStrength
-        second: 2
+        second: .800000012
       data:
         first:
           name: _MaxHeight
@@ -61,11 +61,11 @@ Material:
       data:
         first:
           name: _FocalFalloff
-        second: 100
+        second: 165.899994
       data:
         first:
           name: _FocusDistance
-        second: 250
+        second: 250.699997
       data:
         first:
           name: _DepthColorMaxDepth

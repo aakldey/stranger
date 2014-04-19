@@ -10,6 +10,11 @@ public class WhitePoint : MonoBehaviour {
 
     public GameObject playerSprite;
 
+    public int innactiveTime = 2;
+
+    bool flag = false;
+    float time = 0;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -19,8 +24,16 @@ public class WhitePoint : MonoBehaviour {
 	void Update () {
         if (!done)
         {
-            
-            if (Input.anyKeyDown)
+            if (time < innactiveTime)
+            {
+                time += Time.deltaTime;
+            }
+            else
+            {
+                flag = true;
+            }
+
+            if (Input.anyKeyDown && flag)
             {
                 if (num == 0)
                 {
@@ -29,6 +42,8 @@ public class WhitePoint : MonoBehaviour {
                     GameObject.FindGameObjectWithTag("Sounds").GetComponent<MasterBus>().list[num - 1].Stop();
                     GameObject.FindGameObjectWithTag("Sounds").GetComponent<MasterBus>().list[num].volume = 1;
                     text1.GetComponent<Animator>().SetBool("Trigger", false);
+                    flag = false;
+                    time = 0;
 
                 }
                 else if (num == 1)
@@ -39,6 +54,11 @@ public class WhitePoint : MonoBehaviour {
                     done = true;
 
                     playerSprite.GetComponent<Animator>().SetBool("Trigger", true);
+
+                    flag = false;
+                    time = 0;
+
+                    Camera.main.GetComponent<Animator>().SetBool("Trigger", true);
                     
                 }
             }
