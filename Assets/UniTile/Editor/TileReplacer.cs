@@ -193,7 +193,7 @@ public class TileReplacer {
 				
 				for(int i=0;i<=Mathf.Floor(layer.layerSize.x/layer.groupSize.x);i++) {
 					for(int j=0;j<=Mathf.Floor(layer.layerSize.y/layer.groupSize.y);j++) {
-						TileLayerUtil.RedrawGroup(layer, i, j);
+						TileLayerUtil.RedrawGroup(layer, i, j, editor.propertiesEditor.spriteLayer);
 					}
 				}
 			}
@@ -349,7 +349,7 @@ public class TileReplacer {
 		
 		for(int i=0;i<=Mathf.Floor(layer.layerSize.x/layer.groupSize.x);i++) {
 			for(int j=0;j<=Mathf.Floor(layer.layerSize.y/layer.groupSize.y);j++) {
-				TileLayerUtil.RedrawGroup(layer, i, j);
+				TileLayerUtil.RedrawGroup(layer, i, j, editor.propertiesEditor.spriteLayer);
 			}
 		}
 	}

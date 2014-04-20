@@ -57,7 +57,7 @@ public class LevelRotation : MonoBehaviour
 	void Update ()
 	{
         // TO DO - зарефакторить этот метод
-        if (GetComponent<PlayerControl>().enableControl)
+        if (GetComponent<CharacterController>().enableControl)
         {
             player.transform.rotation = camera.transform.rotation;
             // player.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;

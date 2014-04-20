@@ -58,13 +58,13 @@ public static class TileLayerUtil
 		return TileToGroup(layer, tile.x, tile.y); 
 	}
 	
-	public static void RedrawGroupForChange(TileLayer layer, TileChange change)
+	public static void RedrawGroupForChange(TileLayer layer, TileChange change, string layerName)
 	{
 		GroupPos group = TileToGroup(layer, change.pos);
-		RedrawGroup(layer, group.x, group.y);
+		RedrawGroup(layer, group.x, group.y, layerName);
 	}
 	
-	public static void RedrawGroupForChanges(TileLayer layer, TileChange[] changes)
+	public static void RedrawGroupForChanges(TileLayer layer, TileChange[] changes, string layerName)
 	{
 		List<GroupPos> groups = new List<GroupPos>();
 		foreach(TileChange change in changes)
@@ -76,7 +76,7 @@ public static class TileLayerUtil
 		
 		foreach(GroupPos group in groups)
 		{
-			RedrawGroup(layer, group.x, group.y);
+			RedrawGroup(layer, group.x, group.y, layerName);
 		}
 	}
 /*	 
@@ -97,7 +97,7 @@ public static class TileLayerUtil
 	}
 */
 	
-	public static void RedrawGroup(TileLayer layer, int groupX, int groupY) 
+	public static void RedrawGroup(TileLayer layer, int groupX, int groupY, string layerName) 
 	{
 		if(layer == null) return;
 		if(layer.parent != null) layer = layer.parent;
@@ -116,6 +116,7 @@ public static class TileLayerUtil
 			quaternion.eulerAngles = new Vector3(0, 0, 0);
 			t.localRotation = quaternion;
 			MeshRenderer r = g.AddComponent<MeshRenderer>();
+            r.renderer.sortingLayerName = layerName;
 			MeshFilter f = g.AddComponent<MeshFilter>();
 			m = f.sharedMesh = new Mesh();
 			r.material = layer.material;

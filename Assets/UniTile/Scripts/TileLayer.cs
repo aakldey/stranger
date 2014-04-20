@@ -198,25 +198,25 @@ public class TileLayer : MonoBehaviour
 		if(tile == null) return 0;
 		return tile.boxDepth;
 	}
-	
-	public void SetTiles(TileChange[] changes)
+
+    public void SetTiles(TileChange[] changes, string layerName)
 	{
 		foreach(TileChange change in changes)
 		{
 			SetTileInternal(change.pos.x, change.pos.y, change.newTile);
 		}
-		TileLayerUtil.RedrawGroupForChanges(this, changes);
+		TileLayerUtil.RedrawGroupForChanges(this, changes, layerName);
 	}
 	
-	public void SetTile(TileChange change)
+	public void SetTile(TileChange change, string layerName)
 	{
 		SetTileInternal(change.pos.x, change.pos.y, change.newTile);
-		TileLayerUtil.RedrawGroupForChange(this, change);
+		TileLayerUtil.RedrawGroupForChange(this, change, layerName);
 	}
-	
-	public void SetTile(int x, int y, int newTileId)
+
+    public void SetTile(int x, int y, int newTileId, string layerName)
 	{
-		SetTile(new TileChange(x,y,newTileId));
+		SetTile(new TileChange(x,y,newTileId), layerName);
 	}	
 
 	private void SetTileInternal(int x, int y, int newTileId)

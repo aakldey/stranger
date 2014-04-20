@@ -6,7 +6,7 @@ public class BlurController : MonoBehaviour {
 	public float blurRange = 0.0f;
 	public float blurSteps = 0.0f;
 
-	public FXPostProcess blur;
+	//public FXPostProcess blur;
 
 	void Start () 
 	{
@@ -15,7 +15,7 @@ public class BlurController : MonoBehaviour {
 
 	void Update () 
 	{
-		blur.Material.SetFloat ("_BlurRange", blurRange);
-		blur.Material.SetFloat ("_BlurSteps", blurSteps);
+		//blur.Material.SetFloat ("_BlurRange", blurRange);
+		//blur.Material.SetFloat ("_BlurSteps", blurSteps);
 	}
 }

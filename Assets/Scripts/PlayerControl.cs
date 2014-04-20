@@ -20,7 +20,7 @@ public class PlayerControl : MonoBehaviour
 
 
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
-	private Transform groundCheck;			// A position marking where to check if the player is grounded.
+	public Transform groundCheck;			// A position marking where to check if the player is grounded.
 	private bool grounded = false;			// Whether or not the player is grounded.
 	private Animator anim;					// Reference to the player's animator component.
 
@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour
 	void Awake()
 	{
 		// Setting up references.
-		groundCheck = transform.Find("groundCheck");
+
 		anim = GetComponent<Animator>();
 	}
 
@@ -56,8 +56,9 @@ public class PlayerControl : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && !ladder)
             {
-
+                
                 grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer(layerName));
+                Debug.Log(grounded.ToString());
 
                 if (grounded)
                     jump = true;
@@ -120,7 +121,7 @@ public class PlayerControl : MonoBehaviour
             float l = Input.GetAxis("Vertical");
 
             // The Speed animator parameter is set to the absolute value of the horizontal input.
-            anim.SetFloat("Speed", Mathf.Abs(h));
+            //anim.SetFloat("Speed", Mathf.Abs(h));
 
             // If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
 
@@ -214,7 +215,7 @@ public class PlayerControl : MonoBehaviour
             if (jump && !ladder)
             {
                 // Set the Jump animator trigger parameter.
-                anim.SetTrigger("Jump");
+               // anim.SetTrigger("Jump");
 
                 // Play a random jump audio clip.
                 int i = Random.Range(0, jumpClips.Length);

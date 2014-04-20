@@ -13,6 +13,7 @@ public class TileLayerEditor_LayerProperties
 	Vector2 layerSizeTemp = new Vector2(-1,-1);
 	Vector2 borderSizeTemp = new Vector2(-1,-1);
 	Vector2 borderSizeUvTemp = new Vector2(-1,-1);
+    public string spriteLayer = "Background";
 	
 	static string [] resizeModes = System.Enum.GetNames(typeof(UniTileResizeMode));
 	
@@ -58,6 +59,12 @@ public class TileLayerEditor_LayerProperties
 				layer.useUvSpace = uvspace;
 				return;
 			}
+
+            EditorGUILayout.BeginHorizontal();
+
+            GUILayout.Label("Sprite Layer", GUILayout.Width(145));
+            spriteLayer = EditorGUILayout.TextArea(spriteLayer, GUILayout.Width(100));
+            EditorGUILayout.EndHorizontal();
 			
 			if(layer.useUvSpace) 
 			{
@@ -72,6 +79,13 @@ public class TileLayerEditor_LayerProperties
 					overlapTemp = new Vector2(overlapUvTemp.x * layer.material.mainTexture.width, overlapUvTemp.y * layer.material.mainTexture.height);
 					borderSizeTemp = new Vector2(borderSizeUvTemp.x * layer.material.mainTexture.width, borderSizeUvTemp.y * layer.material.mainTexture.height);
 				}
+
+
+/*                EditorGUILayout.BeginHorizontal();
+                GUILayout.Label("Sprite Layer", GUILayout.Width(145));
+                spriteLayer = EditorGUILayout.TextArea("Background", GUILayout.Width(145));
+   
+                EditorGUILayout.EndHorizontal();*/
 			} 
 			else 
 			{

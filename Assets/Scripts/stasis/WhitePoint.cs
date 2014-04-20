@@ -9,6 +9,7 @@ public class WhitePoint : MonoBehaviour {
     public GameObject text2;
 
     public GameObject playerSprite;
+    public GameObject player;
 
     public int innactiveTime = 2;
 
@@ -51,7 +52,7 @@ public class WhitePoint : MonoBehaviour {
                     text2.GetComponent<Animator>().SetBool("Trigger", true);
                     GameObject.FindGameObjectWithTag("Sounds").GetComponent<MasterBus>().list[num - 1].volume = 0;
                     GameObject.FindGameObjectWithTag("Sounds").GetComponent<MasterBus>().list[num].volume = 1;
-                    done = true;
+                   // done = true;
 
                     playerSprite.GetComponent<Animator>().SetBool("Trigger", true);
 
@@ -59,7 +60,16 @@ public class WhitePoint : MonoBehaviour {
                     time = 0;
 
                     Camera.main.GetComponent<Animator>().SetBool("Trigger", true);
-                    
+                    num++;
+
+                }
+                else if (num == 2)
+                {
+                    player.GetComponent<CharacterController>().enableControl = true;
+                    player.GetComponent<Rigidbody2D>().gravityScale = 1;
+                    Camera.main.GetComponent<Animator>().SetBool("Trigger", false);
+                    flag = false;
+                    num++;
                 }
             }
         }

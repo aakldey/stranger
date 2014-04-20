@@ -61,7 +61,7 @@ public class TileLayerEditor : Editor {
 	public static Vector2 pickEnd;
 	public static bool picking;	
 
-	TileLayerEditor_LayerProperties propertiesEditor = new TileLayerEditor_LayerProperties();
+	public TileLayerEditor_LayerProperties propertiesEditor = new TileLayerEditor_LayerProperties();
 	TileLayerEditor_Tileset			tilesetEditor 	 = new TileLayerEditor_Tileset();
 	TileLayerEditor_SceneView 		sceneViewEditor  = new TileLayerEditor_SceneView();
 	private Vector2	startDrawingPos;
@@ -742,7 +742,7 @@ public class TileLayerEditor : Editor {
 		
 		int groupX = (int)Mathf.Floor((float)pos.x/(float)layer.groupSize.x);
 		int groupY = (int)Mathf.Floor((float)pos.y/(float)layer.groupSize.y);
-		TileLayerUtil.RedrawGroup(layer, groupX, groupY);
+        TileLayerUtil.RedrawGroup(layer, groupX, groupY, propertiesEditor.spriteLayer);
 	}
 	
 	private bool textureChanged = false;
@@ -828,6 +828,7 @@ public class TileLayerEditor : Editor {
 			TileLayer child = layer.transform.GetChild(i).GetComponent<TileLayer>();
 			if(child != null && child.material!=null && child.tileset==null) {
 				this.GetTileset(child);
+                
 			}
 		}
 		
@@ -864,7 +865,7 @@ public class TileLayerEditor : Editor {
 		this.MakeTextureReadable();
 		for(int i=0;i<=Mathf.Floor(layer.layerSize.x/layer.groupSize.x);i++) {
 			for(int j=0;j<=Mathf.Floor(layer.layerSize.y/layer.groupSize.y);j++) {
-				TileLayerUtil.RedrawGroup(layer, i,j);
+				TileLayerUtil.RedrawGroup(layer, i,j, propertiesEditor.spriteLayer);
 			}
 		}
 		this.ResetTexture();
