@@ -19,7 +19,7 @@ public class Ladder : MonoBehaviour {
     {
         if (col.tag == "PlayerTrigger")
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().ladder = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().ladder = true;
         }
     }
 
@@ -27,7 +27,7 @@ public class Ladder : MonoBehaviour {
     {
         if (col.tag == "PlayerTrigger")
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().ladder = false;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().ladder = false;
         }
     }
 }

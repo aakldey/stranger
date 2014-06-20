@@ -8,7 +8,7 @@ public class CharacterController : MonoBehaviour
 
     public float jumpForce = 600.0f;
     //переменная для определения направления персонажа вправо/влево
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
     //ссылка на компонент анимаций
     private Animator anim;
     //находится ли персонаж на земле или в прыжке?
@@ -23,6 +23,8 @@ public class CharacterController : MonoBehaviour
     
     public bool enableControl = false;
 
+	public bool ladder = false;
+
     PlayerState playerState;
 
     /// <summary>
@@ -31,7 +33,7 @@ public class CharacterController : MonoBehaviour
     private void Start()
     {
         playerState = GetComponent<PlayerState>();
-        whatIsGround = LayerMask.NameToLayer(playerState.CurrentState.ToString());
+        //whatIsGround = LayerMask.NameToLayer(playerState.CurrentState.ToString());
         anim = GetComponent<Animator>();
     }
 
@@ -57,14 +59,29 @@ public class CharacterController : MonoBehaviour
             //-1 возвращается при нажатии на клавиатуре стрелки влево (или клавиши А),
             //1 возвращается при нажатии на клавиатуре стрелки вправо (или клавиши D)
             float move = Input.GetAxis("Horizontal");
+			float l = Input.GetAxis("Vertical");
 
             //в компоненте анимаций изменяем значение параметра Speed на значение оси Х.
             //приэтом нам нужен модуль значения
             //anim.SetFloat("Speed", Mathf.Abs(move));
 
+			if (ladder)
+			{
+				rigidbody2D.gravityScale = 0;
+				rigidbody2D.velocity = new Vector2(0, 0);
+			}
+			else
+			{
+				rigidbody2D.gravityScale = 1;
+				
+			}
+
             //обращаемся к компоненту персонажа RigidBody2D. задаем ему скорость по оси Х, 
             //равную значению оси Х умноженное на значение макс. скорости
             rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
+
+			if (ladder)
+				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, maxSpeed*l);
 
             //если нажали клавишу для перемещения вправо, а персонаж направлен влево
             if (move > 0 && !isFacingRight)
