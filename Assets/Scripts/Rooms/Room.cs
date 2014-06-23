@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using SpriteTile;
-using UnityEditor;
-
 
 
 public class Room : MonoBehaviour {
@@ -12,12 +10,28 @@ public class Room : MonoBehaviour {
 
 	public GameObject roomManager;
 
+	public List<EntryPoint> points;
+
+	public bool rotatable = false;
+
+	public bool flipHorizontal = false;
+
+	public bool flipVertical = false;
+
+	public bool randomHorizontal = false;
+
+	public bool randomVertical = false;
+
+	public string name = "Room";
+
+
 	public Room() {
 
 	}
 
 	public void Start() {
 		roomManager = GameObject.FindGameObjectWithTag("RoomManager");
+		points = getAllEntryPoints();
 	}
 
 	public void Update() {
@@ -35,8 +49,13 @@ public class Room : MonoBehaviour {
 	}
 
 	public List<EntryPoint> getAllEntryPoints() {
-		List<EntryPoint> list = new List<EntryPoint>(GetComponentsInChildren<EntryPoint>());
-		return list;
+		List<Transform> list = new List<Transform>(GetComponentsInChildren<Transform>(true));
+		List<EntryPoint> points = new List<EntryPoint>();
+		foreach(Transform t in list) {
+			if (t.gameObject.GetComponent<EntryPoint>() != null)
+				points.Add(t.gameObject.GetComponent<EntryPoint>());
+		}
+		return points;
 	}
 
 	public List<EntryPoint> getAllConnectedPoints() {
@@ -75,12 +94,131 @@ public class Room : MonoBehaviour {
 		foreach(EntryPoint p in GetComponentsInChildren<EntryPoint>()) {
 			if(p.entrySide ==EntrySide.LEFT)
 				p.entrySide = EntrySide.RIGHT;
-			else
+			else if (p.entrySide == EntrySide.RIGHT)
 				p.entrySide = EntrySide.LEFT;
+
+			if(p.entryDir == EntryDir.LEFT)
+				p.entryDir = EntryDir.RIGHT;
+			else if(p.entryDir == EntryDir.RIGHT)
+				p.entryDir = EntryDir.LEFT;
 
 
 		}
 		gameObject.transform.Rotate(0, 180, 0);
+	}
+
+
+	public void FlipVertical() {
+		Debug.Log("Flip vertical room "+gameObject.ToString());
+		foreach (EntryPoint p in GetComponentsInChildren<EntryPoint>()) {
+			if (p.entrySide == EntrySide.UP) 
+				p.entrySide = EntrySide.DOWN;
+			else if (p.entrySide == EntrySide.DOWN)
+				p.entrySide = EntrySide.UP;
+
+			if(p.entryDir == EntryDir.UP)
+				p.entryDir = EntryDir.DOWN;
+			else if(p.entryDir == EntryDir.DOWN)
+				p.entryDir = EntryDir.UP;
+
+
+				
+
+		}
+		gameObject.transform.Rotate(180, 0, 0);
+	}
+
+	private EntrySide getRotationSide(EntrySide side, int i) {
+		switch(i){
+		case 0:
+			return side;
+			break;
+		case 1:
+			return (EntrySide)(((int)side+1)% 4);
+			break;
+		case 2:
+			return (EntrySide)(((int)side+2)% 4);
+			break;
+		case 3:
+			return (EntrySide)(((int)side+3)% 4);
+			break;
+		}
+		return EntrySide.DOWN;
+	}
+
+	private EntryDir getRotationDir(EntryDir dir, int i) {
+		switch(i){
+		case 0:
+			return dir;
+			break;
+		case 1:
+			return (EntryDir)(((int)dir+1)% 4);
+			break;
+		case 2:
+			return (EntryDir)(((int)dir+2)% 4);
+			break;
+		case 3:
+			return (EntryDir)(((int)dir+3)% 4);
+			break;
+		}
+		return EntryDir.DOWN;
+	}
+
+
+
+	public bool hasToConnect(EntryPoint point) {
+		List<EntryPoint> list = getAllEntryPoints();
+
+
+
+		//Debug.Log("Entry Points: "+list.Count);
+		for (int i = 0; i < 4; i++) {
+
+			if ((i > 0 && rotatable) || i == 0)
+			foreach(EntryPoint p in list) {
+				if (p.entrySide == getRotationSide(point.getOppositeSide(), i)){
+					if (p.entryDir == getRotationDir(point.entryDir, i) && (point.canConnectWith.Count == 0 || point.canConnectWith.Find(a => (a.name == this.name)) != null || point.canConnectWith.Find(a => (a.name == "AllRooms")) != null)) {
+						//Debug.Log("has to connect");
+						return true;
+					}
+				}
+			}
+
+		}
+
+		if (flipHorizontal) {
+			for (int i = 0; i < 4; i++) {
+				
+				if ((i > 0 && rotatable) || i == 0)
+				foreach(EntryPoint p in list) {
+					if (p.getHotizontalFlipSide() == getRotationSide(point.getOppositeSide(), i) && (point.canConnectWith.Count == 0 || point.canConnectWith.Find(a => (a.name == this.name)) != null || point.canConnectWith.Find(a => (a.name == "AllRooms")) != null)) {
+						if (p.getHorizontalFlipDir() == getRotationDir(point.entryDir, i)) {
+							//Debug.Log("has to connect");
+							return true;
+						}
+					}
+				}
+				
+			}
+		}
+
+		if (flipVertical) {
+			for (int i = 0; i < 4; i++) {
+				
+				if ((i > 0 && rotatable) || i == 0)
+				foreach(EntryPoint p in list) {
+					if (p.getVerticalFlipSide() == getRotationSide(point.getOppositeSide(), i) && (point.canConnectWith.Count == 0 || point.canConnectWith.Find(a => (a.name == this.name)) != null || point.canConnectWith.Find(a => (a.name == "AllRooms")) != null)) {
+						if (p.getVerticalFlipDir() == getRotationDir(point.entryDir, i)) {
+							//Debug.Log("has to connect");
+							return true;
+						}
+					}
+				}
+				
+			}
+		}
+
+		return false;
 	}
 
 

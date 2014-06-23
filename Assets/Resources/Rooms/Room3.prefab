@@ -3974,6 +3974,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 0, y: 0}
   roomManager: {fileID: 0}
+  points: []
+  rotatable: 0
+  flipHorizontal: 1
+  flipVertical: 1
+  randomHorizontal: 1
+  randomVertical: 0
+  name: Room3
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4000,6 +4007,7 @@ MonoBehaviour:
   entrySide: 2
   entryDir: 0
   connectedEntry: {fileID: 0}
+  canConnectWith: []
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4015,6 +4023,7 @@ MonoBehaviour:
   entrySide: 0
   entryDir: 0
   connectedEntry: {fileID: 0}
+  canConnectWith: []
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 
-public enum EntryType {
-	ENTER, EXIT
-}
 
 public enum EntryDir {
 	UP, RIGHT, DOWN, LEFT
@@ -16,8 +12,7 @@ public enum EntrySide {
 }
 
 public class EntryPoint : MonoBehaviour {
-
-	public EntryType entryType;
+	
 	public EntrySide entrySide;
 	public EntryDir entryDir;
 
@@ -25,6 +20,8 @@ public class EntryPoint : MonoBehaviour {
 
 	private CharacterController player;
 
+	public List<Room> canConnectWith = new List<Room>();
+	
 	// Use this for initializations
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
@@ -45,35 +42,105 @@ public class EntryPoint : MonoBehaviour {
 		
 	}
 
+	public EntrySide getOppositeSide() {
+		switch(entrySide){
+		case EntrySide.LEFT:
+			return EntrySide.RIGHT;
+		case EntrySide.RIGHT:
+			return EntrySide.LEFT;
+		case EntrySide.DOWN:
+			return EntrySide.UP;
+		case EntrySide.UP:
+			return EntrySide.DOWN;
+		}
+		return EntrySide.DOWN;
+	}
+
+	public EntryDir getOppositeDir() {
+		switch(entryDir){
+		case EntryDir.LEFT:
+			return EntryDir.RIGHT;
+		case EntryDir.RIGHT:
+			return EntryDir.LEFT;
+		case EntryDir.DOWN:
+			return EntryDir.UP;
+		case EntryDir.UP:
+			return EntryDir.DOWN;
+		}
+		return EntryDir.DOWN;
+	}
+
+	public EntrySide getHotizontalFlipSide() {
+		switch(entrySide){
+			case EntrySide.LEFT:
+				return EntrySide.RIGHT;
+			case EntrySide.RIGHT:
+				return EntrySide.LEFT;
+
+			}
+		return entrySide;
+	}
+
+	public EntrySide getVerticalFlipSide() {
+		switch(entrySide){
+		case EntrySide.UP:
+			return EntrySide.DOWN;
+		case EntrySide.DOWN:
+			return EntrySide.UP;
+			
+		}
+		return entrySide;
+	}
+
+	public EntryDir getHorizontalFlipDir() {
+		switch(entryDir) {
+		case EntryDir.LEFT:
+			return EntryDir.RIGHT;
+		case EntryDir.RIGHT:
+			return EntryDir.LEFT;
+		}
+		return entryDir;
+	}
+
+	public EntryDir getVerticalFlipDir() {
+		switch(entryDir) {
+		case EntryDir.UP:
+			return EntryDir.DOWN;
+		case EntryDir.DOWN:
+			return EntryDir.UP;
+		}
+		return entryDir;
+	}
+
 	void OnTriggerExit2D(Collider2D other) {
 		if(other.tag == "PlayerTrigger") {
-			if (entryType == EntryType.ENTER) {
-				//getRoom().RotateRight();
-				if ((player.isFacingRight && entrySide == EntrySide.LEFT) || (!player.isFacingRight && entrySide == EntrySide.RIGHT)) {
+			//getRoom().RotateRight();
+			if ((player.isFacingRight && entrySide == EntrySide.LEFT) || (!player.isFacingRight && entrySide == EntrySide.RIGHT) ||
+			    (player.isFacingUp && entrySide == EntrySide.DOWN) || (!player.isFacingUp && entrySide == EntrySide.UP)) {
+				
+				Room room = getRoom();
+				List<EntryPoint> list = connectedEntry.getRoom().getConnectedEntryPoints(connectedEntry);
+				//Debug.Log(list.Count);
+				foreach(EntryPoint point in list) {
+					GameObject r = point.connectedEntry.getRoom().gameObject;
+					point.connectedEntry = null;
 					
-					Room room = getRoom();
-					List<EntryPoint> list = connectedEntry.getRoom().getConnectedEntryPoints(connectedEntry);
-					Debug.Log(list.Count);
-					foreach(EntryPoint point in list) {
-						GameObject r = point.connectedEntry.getRoom().gameObject;
-						point.connectedEntry = null;
-						
-						if(r != null) {
-							Debug.Log("deleting");
-							Destroy(r);
-						}
+					if(r != null) {
+						//Debug.Log("deleting");
+						Destroy(r.transform.parent.gameObject);
 					}
 				}
-				
-				if ((player.isFacingRight && entrySide == EntrySide.RIGHT) || (!player.isFacingRight && entrySide == EntrySide.LEFT)) {
-					IRoomManager manager = transform.parent.gameObject.GetComponent<Room>().roomManager.GetComponent<RoomManager>();
-					List<EntryPoint> freeList = connectedEntry.getRoom().getFreeEntryPoints();
-					foreach(EntryPoint point in freeList) {
-						EntryPoint p = manager.spawnRoom(point);
-					}
-				}
-				
 			}
+			
+			if ((player.isFacingRight && entrySide == EntrySide.RIGHT) || (!player.isFacingRight && entrySide == EntrySide.LEFT) ||
+			    (player.isFacingUp && entrySide == EntrySide.UP) || (!player.isFacingUp && entrySide == EntrySide.DOWN)) {
+				IRoomManager manager = transform.parent.gameObject.GetComponent<Room>().roomManager.GetComponent<RoomManager>();
+				List<EntryPoint> freeList = connectedEntry.getRoom().getFreeEntryPoints();
+				foreach(EntryPoint point in freeList) {
+					EntryPoint p = manager.spawnRoom(point);
+				}
+			}
+
 		}
 
 	}

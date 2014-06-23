@@ -5915,6 +5915,7 @@ MonoBehaviour:
   entrySide: 2
   entryDir: 2
   connectedEntry: {fileID: 0}
+  canConnectWith: []
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5930,6 +5931,7 @@ MonoBehaviour:
   entrySide: 0
   entryDir: 0
   connectedEntry: {fileID: 0}
+  canConnectWith: []
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7991,6 +7993,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 20, y: 10}
   roomManager: {fileID: 0}
+  points: []
+  rotatable: 0
+  flipHorizontal: 0
+  flipVertical: 1
+  randomHorizontal: 0
+  randomVertical: 0
+  name: Room4
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

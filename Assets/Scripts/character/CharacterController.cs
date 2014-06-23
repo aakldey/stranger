@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour
     public float jumpForce = 600.0f;
     //переменная для определения направления персонажа вправо/влево
     public bool isFacingRight = true;
+	public bool isFacingUp = true;
     //ссылка на компонент анимаций
     private Animator anim;
     //находится ли персонаж на земле или в прыжке?
@@ -90,6 +91,16 @@ public class CharacterController : MonoBehaviour
             //обратная ситуация. отражаем персонажа влево
             else if (move < 0 && isFacingRight)
                 Flip();
+
+			if (l > 0 && !isFacingUp)
+				isFacingUp = true;
+
+			if (l < 0 && isFacingUp)
+				isFacingUp = false;
+
+			if(isGrounded)
+				isFacingUp = false;
+		
         }
     }
 
