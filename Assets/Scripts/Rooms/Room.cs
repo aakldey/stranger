@@ -22,7 +22,7 @@ public class Room : MonoBehaviour {
 
 	public bool randomVertical = false;
 
-	public string name = "Room";
+	public new string name = "Room";
 
 
 	public Room() {
@@ -219,6 +219,70 @@ public class Room : MonoBehaviour {
 		}
 
 		return false;
+	}
+
+	public GameObject BuildLeftEntry() {
+		GameObject trigger = new GameObject();
+		trigger.name = "Left_Enter";
+		trigger.transform.parent = gameObject.transform;
+		BoxCollider2D col = trigger.AddComponent<BoxCollider2D>();
+		col.isTrigger = true;
+		col.size = new Vector2(1, 3);
+		col.center = new Vector2(0.5f, 0);
+		Rigidbody2D r = trigger.AddComponent<Rigidbody2D>();
+		r.isKinematic = true;
+		EntryPoint point = trigger.AddComponent<EntryPoint>();
+		point.entryDir = EntryDir.UP;
+		point.entrySide = EntrySide.LEFT;
+		return trigger;
+	}
+
+	public GameObject BuildRightEntry() {
+		GameObject trigger = new GameObject();
+		trigger.name = "Right_Enter";
+		trigger.transform.parent = gameObject.transform;
+		BoxCollider2D col = trigger.AddComponent<BoxCollider2D>();
+		col.isTrigger = true;
+		col.size = new Vector2(1, 3);
+		col.center = new Vector2(-0.5f, 0);
+		Rigidbody2D r = trigger.AddComponent<Rigidbody2D>();
+		r.isKinematic = true;
+		EntryPoint point = trigger.AddComponent<EntryPoint>();
+		point.entryDir = EntryDir.UP;
+		point.entrySide = EntrySide.RIGHT;
+		return trigger;
+	}
+
+	public GameObject BuildDownEntry() {
+		GameObject trigger = new GameObject();
+		trigger.name = "Left_Enter";
+		trigger.transform.parent = gameObject.transform;
+		BoxCollider2D col = trigger.AddComponent<BoxCollider2D>();
+		col.isTrigger = true;
+		col.size = new Vector2(3, 0.2f);
+		col.center = new Vector2(0, 0.2f);
+		Rigidbody2D r = trigger.AddComponent<Rigidbody2D>();
+		r.isKinematic = true;
+		EntryPoint point = trigger.AddComponent<EntryPoint>();
+		point.entryDir = EntryDir.LEFT;
+		point.entrySide = EntrySide.DOWN;
+		return trigger;
+	}
+
+	public GameObject BuildUpEntry() {
+		GameObject trigger = new GameObject();
+		trigger.name = "Left_Enter";
+		trigger.transform.parent = gameObject.transform;
+		BoxCollider2D col = trigger.AddComponent<BoxCollider2D>();
+		col.isTrigger = true;
+		col.size = new Vector2(3, 0.2f);
+		col.center = new Vector2(0, -0.1f);
+		Rigidbody2D r = trigger.AddComponent<Rigidbody2D>();
+		r.isKinematic = true;
+		EntryPoint point = trigger.AddComponent<EntryPoint>();
+		point.entryDir = EntryDir.LEFT;
+		point.entrySide = EntrySide.UP;
+		return trigger;
 	}
 
 

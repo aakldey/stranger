@@ -301,6 +301,10 @@ Prefab:
       propertyPath: flipable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f7f0c3853b56d6541952cf6b1cd005e0, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7f0c3853b56d6541952cf6b1cd005e0, type: 2}
   m_RootGameObject: {fileID: 990071100}
@@ -5435,7 +5439,7 @@ GameObject:
   m_Layer: 0
   m_Name: left_enter
   m_TagString: Untagged
-  m_Icon: {fileID: -1376725286, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -8510,7 +8514,7 @@ GameObject:
   m_Layer: 0
   m_Name: left_enter
   m_TagString: Untagged
-  m_Icon: {fileID: -1376725286, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -11389,6 +11393,14 @@ Prefab:
       propertyPath: connectedEntry
       value: 
       objectReference: {fileID: 541130910}
+    - target: {fileID: 100000, guid: f7f0c3853b56d6541952cf6b1cd005e0, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f7f0c3853b56d6541952cf6b1cd005e0, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7f0c3853b56d6541952cf6b1cd005e0, type: 2}
   m_RootGameObject: {fileID: 159512184}
@@ -18888,7 +18900,7 @@ GameObject:
   m_Layer: 0
   m_Name: right_enter
   m_TagString: Untagged
-  m_Icon: {fileID: -1376725286, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

@@ -32,6 +32,12 @@ public class EntryPoint : MonoBehaviour {
 	
 	}
 
+	void OnDrawGizmos() 
+	{
+		Gizmos.DrawIcon(transform.position, "entry.tif", false);
+	}
+
+
 	void OnTriggerEnter2D(Collider2D other) {
 		//if(other.tag == "Crate") {
 			//other.transform.parent = this.transform.parent;

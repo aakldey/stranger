@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/old/MainMenu.unity
   - enabled: 0
-    path: Assets/Scenes/StasisIntro.unity
+    path: Assets/Scenes/old/StasisIntro.unity
   - enabled: 1
     path: Assets/Scenes/test.unity
