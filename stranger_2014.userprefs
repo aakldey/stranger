@@ -1,16 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Rooms\EntryPoint.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Objects\Lever.cs">
     <Files>
-      <File FileName="Assets\Scripts\Rooms\Room.cs" Line="23" Column="37" />
-      <File FileName="Assets\Scripts\Rooms\RoomManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Rooms\Room.cs" Line="33" Column="92" />
+      <File FileName="Assets\Scripts\Rooms\RoomManager.cs" Line="58" Column="14" />
       <File FileName="Assets\Scripts\Rooms\IRoomManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Rooms\EntryPoint.cs" Line="37" Column="57" />
+      <File FileName="Assets\Scripts\Rooms\EntryPoint.cs" Line="146" Column="66" />
       <File FileName="Assets\Scripts\Stranger\ToSecondTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\character\CharacterController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Stranger\Ladder.cs" Line="27" Column="6" />
+      <File FileName="Assets\Scripts\Stranger\Ladder.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Editor\RoomEditor.cs" Line="18" Column="33" />
+      <File FileName="Assets\Editor\RoomEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Lever.cs" Line="44" Column="67" />
+      <File FileName="Assets\Scripts\Stranger\PushButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\ParticleColorAnimation.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

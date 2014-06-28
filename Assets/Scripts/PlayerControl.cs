@@ -31,6 +31,8 @@ public class PlayerControl : MonoBehaviour
 
     public bool enableControl = true;
 
+	public GameObject lever = null;
+
     void Start()
     {
 
@@ -64,12 +66,7 @@ public class PlayerControl : MonoBehaviour
                     jump = true;
             }
 
-            if (Input.GetButton("Use"))
-            {
-                //    Camera camera = GameObject.FindGameObjectWithTag("MainCamera").camera;
-                //    FXPostProcess[] list = camera.GetComponents<FXPostProcess>();
-                //    list[list.Length - 1].enabled = !list[list.Length - 1].enabled;
-            }
+            
 
             if (Input.GetButtonDown("Transfer") && GetComponent<PlayerState>().AllowTransfer && GetComponent<LevelRotation>().rotating == false)
             {

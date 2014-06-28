@@ -20,7 +20,10 @@ public class EntryPoint : MonoBehaviour {
 
 	private CharacterController player;
 
+	private List<EntryPoint> list;
+
 	public List<Room> canConnectWith = new List<Room>();
+	public List<Room> ignoreRooms = new List<Room>();
 	
 	// Use this for initializations
 	void Start () {
@@ -125,7 +128,7 @@ public class EntryPoint : MonoBehaviour {
 			    (player.isFacingUp && entrySide == EntrySide.DOWN) || (!player.isFacingUp && entrySide == EntrySide.UP)) {
 				
 				Room room = getRoom();
-				List<EntryPoint> list = connectedEntry.getRoom().getConnectedEntryPoints(connectedEntry);
+				list = connectedEntry.getRoom().getConnectedEntryPoints(connectedEntry);
 				//Debug.Log(list.Count);
 				foreach(EntryPoint point in list) {
 					GameObject r = point.connectedEntry.getRoom().gameObject;
@@ -140,9 +143,9 @@ public class EntryPoint : MonoBehaviour {
 			
 			if ((player.isFacingRight && entrySide == EntrySide.RIGHT) || (!player.isFacingRight && entrySide == EntrySide.LEFT) ||
 			    (player.isFacingUp && entrySide == EntrySide.UP) || (!player.isFacingUp && entrySide == EntrySide.DOWN)) {
-				IRoomManager manager = transform.parent.gameObject.GetComponent<Room>().roomManager.GetComponent<RoomManager>();
-				List<EntryPoint> freeList = connectedEntry.getRoom().getFreeEntryPoints();
-				foreach(EntryPoint point in freeList) {
+				IRoomManager manager = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomManager>();
+				list = connectedEntry.getRoom().getFreeEntryPoints();
+				foreach(EntryPoint point in list) {
 					EntryPoint p = manager.spawnRoom(point);
 				}
 			}

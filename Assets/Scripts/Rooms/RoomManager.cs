@@ -11,23 +11,21 @@ public class RoomManager : MonoBehaviour, IRoomManager {
 	void Start () {
 		rand = new System.Random();
 		foreach(GameObject obj in roomPrefabs) {
-			obj.GetComponent<Room>().roomManager = gameObject;
-		}
-
+			obj.GetComponent<Room>().roomManager = gameObject.GetComponent<RoomManager>();
+		} 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//foreach(Room r in roomPrefabs)
-		//	r.Update();
+
 	}
 
 	private Room tryInsert(Room newRoom, EntryPoint sender) {
-		bool rotatable = newRoom.rotatable;
-		int count = rotatable?4:1;
+		int count = newRoom.rotatable?4:1;
+		List<EntryPoint> list;
 		for (int i = 0; i < count; i++){
-			List<EntryPoint> list = newRoom.getFreeEntryPoints().FindAll(a => (a.entrySide == getOppositeEntrySide(sender.entrySide)));
-			Vector3 oldP = newRoom.gameObject.transform.position;
+			 list = newRoom.getFreeEntryPoints().FindAll(a => (a.entrySide == getOppositeEntrySide(sender.entrySide)));
+			//Vector3 oldP = newRoom.gameObject.transform.position;
 			foreach(EntryPoint point in list) {
 				if (point.entryDir == sender.entryDir && point.connectedEntry == null) {
 					GameObject root = new GameObject();
@@ -40,35 +38,24 @@ public class RoomManager : MonoBehaviour, IRoomManager {
 					return newRoom;
 				} 				
 			}
-			if(rotatable)
+			if(count != 1)
 				newRoom.RotateRight();
 		}
-
 		return null;
 	}
 
 	public GameObject choseRoom(EntryPoint sender) {
 		List<GameObject> rooms = roomPrefabs.FindAll(a => (a.GetComponent<Room>().hasToConnect(sender)));
-		//foreach(GameObject room in roomPrefabs) {
-			//Room newRoom1 = ((GameObject)(Instantiate(room))).GetComponent<Room>();
-			//newRoom1.transform.position = new Vector3(-10000,-10000,-1000);
-
-			//if (newRoom1.hasToConnect(sender))
-			//    rooms.Add(room);
-			//Destroy(newRoom1.gameObject);
-		//}
-		//Debug.Log("Кандидаты в комнаты: "+rooms.Count);
+		//Debug.Log(rooms.Count);
 		Room newRoom = ((GameObject)(Instantiate(rooms[rand.Next(0,rooms.Count)]))).GetComponent<Room>();
 		//while(true){
 		if(newRoom.flipHorizontal && newRoom.randomHorizontal) {
-			System.Random r = new System.Random();
-			if(r.Next(1, 16) >= 8)
+			if(rand.Next(1, 16) >= 8)
 				newRoom.FlipHorizontal();
 		}
 
 		if(newRoom.flipVertical && newRoom.randomVertical) {
-			System.Random r = new System.Random();
-			if(r.Next(1, 16) >= 8)
+			if(rand.Next(1, 16) >= 8)
 				newRoom.FlipVertical();
 		}
 
@@ -110,7 +97,6 @@ public class RoomManager : MonoBehaviour, IRoomManager {
 
 			GameObject newRoom = choseRoom(sender);
 //			newRoom.transform.position = pos;
-
 			List<EntryPoint> list = new List<EntryPoint>(newRoom.GetComponentsInChildren<EntryPoint>());
 			EntryPoint point = list.Find(a => (a.entrySide == sender.getOppositeSide()));
 			point.connectedEntry = sender;

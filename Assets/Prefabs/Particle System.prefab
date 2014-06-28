@@ -24,8 +24,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -.0616284311, y: -.704416037, z: -.704416037, w: .0616284311}
-  m_LocalPosition: {x: -138.092865, y: 16.2280579, z: -428.769806}
+  m_LocalRotation: {x: .606916249, y: .410844147, z: .662109673, w: .15643087}
+  m_LocalPosition: {x: 8.02723217, y: 18.099472, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -222,7 +222,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 90.2699966
+      scalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -283,11 +283,11 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 5
+    type: 2
     radius: 1
     angle: 25
     length: 5
-    boxX: 1696.05005
+    boxX: 1
     boxY: 1000
     boxZ: 30
     placementMode: 0
@@ -297,7 +297,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 200
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1059,7 +1059,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: f60025d65c8a36f4dbbae83103b62a73, type: 2}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1071,7 +1071,7 @@ ParticleSystemRenderer:
   m_RenderMode: 1
   m_MaxParticleSize: 1
   m_CameraVelocityScale: 1
-  m_VelocityScale: 2.70000005
+  m_VelocityScale: 100
   m_LengthScale: 2.5
   m_SortingFudge: 0
   m_NormalDirection: 1

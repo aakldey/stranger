@@ -28,6 +28,8 @@ public class CharacterController : MonoBehaviour
 
     PlayerState playerState;
 
+	public GameObject lever = null;
+
     /// <summary>
     /// Начальная инициализация
     /// </summary>
@@ -77,6 +79,7 @@ public class CharacterController : MonoBehaviour
 				
 			}
 
+
             //обращаемся к компоненту персонажа RigidBody2D. задаем ему скорость по оси Х, 
             //равную значению оси Х умноженное на значение макс. скорости
             rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
@@ -108,6 +111,16 @@ public class CharacterController : MonoBehaviour
     {
         if (enableControl)
         {
+			
+			if (Input.GetButtonDown("Use"))
+			{
+				if (lever != null) {
+					if(!lever.GetComponent<Lever>().busy) {
+						lever.GetComponent<Lever>().Switch();
+					}
+				}
+			}
+
             //если персонаж на земле и нажат пробел...
             if (isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
