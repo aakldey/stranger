@@ -10,9 +10,16 @@ public class RoomManager : MonoBehaviour, IRoomManager {
 	// Use this for initialization
 	void Start () {
 		rand = new System.Random();
+		GameObject roomsPull = GameObject.FindGameObjectWithTag("RoomsPull");
+		List<GameObject> pull = new List<GameObject>();
 		foreach(GameObject obj in roomPrefabs) {
-			obj.GetComponent<Room>().roomManager = gameObject.GetComponent<RoomManager>();
+			GameObject newRoom = (GameObject)(Instantiate(obj));
+			newRoom.transform.parent = roomsPull.transform;
+			newRoom.transform.position = new Vector3(-10000,-10000,-10000);
+			newRoom.GetComponent<Room>().roomManager = gameObject.GetComponent<RoomManager>();
+			pull.Add(newRoom);
 		} 
+		roomPrefabs = pull;
 	}
 	
 	// Update is called once per frame

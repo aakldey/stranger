@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+using System.Collections.Generic;
 
 public class Lever : MonoBehaviour {
 
@@ -20,6 +18,14 @@ public class Lever : MonoBehaviour {
 			busy = true;
 		} else {
 			busy = false;
+		}
+
+		if (!switched && triggered.GetBool("Triggered") == true) {
+			triggered.SetBool("Triggered", false);
+			GetComponentInChildren<Animator>().SetBool("Switched", false);
+		} else if (switched && triggered.GetBool("Triggered") == false) {
+			triggered.SetBool("Triggered", true);
+			GetComponentInChildren<Animator>().SetBool("Switched", true);
 		}
 	}
 
@@ -42,5 +48,19 @@ public class Lever : MonoBehaviour {
 		switched = !switched;
 		GetComponentInChildren<Animator>().SetBool("Switched", switched);
 		triggered.SetBool("Triggered", !triggered.GetBool("Triggered"));
+		RoomManager manager = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomManager>();
+		GameObject obj = manager.roomPrefabs.Find(a => (a.GetComponent<Room>().name == transform.parent.gameObject.GetComponent<Room>().name));
+		List<Room> list = new List<Room>(GameObject.FindGameObjectWithTag("RoomsPull").GetComponentsInChildren<Room>());
+		//Room room = list.Find(a => (a.name == obj.GetComponent<Room>().name));
+		GameObject newRoom = (GameObject)(Instantiate(transform.parent.gameObject));
+		newRoom.transform.parent = GameObject.FindGameObjectWithTag("RoomsPull").transform;
+		newRoom.transform.position = new Vector3(-10000,-10000, -10000);
+		newRoom.name = obj.GetComponent<Room>().name;
+		foreach(EntryPoint p in newRoom.GetComponent<Room>().getAllEntryPoints()) {
+			p.connectedEntry = null;
+		}
+		manager.roomPrefabs.Add(newRoom);
+		manager.roomPrefabs.Remove(obj);
+		Destroy(obj);
 	}
 }

@@ -13,26 +13,10 @@ Platform assembly: D:\!game_project\stranger_2014\stranger_test_Data\Managed\Ass
 Loading D:\!game_project\stranger_2014\stranger_test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: D:\!game_project\stranger_2014\stranger_test_Data\Managed\SpriteTile.dll (this message is harmless)
 Loading D:\!game_project\stranger_2014\stranger_test_Data\Managed\SpriteTile.dll into Unity Child Domain
-- Completed reload, in  0.059 seconds
+- Completed reload, in  0.102 seconds
 desktop: 1600x1200 60Hz; virtual: 2880x1200 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-Enter
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Left
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Enter
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Left
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
 Enter
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
