@@ -28,6 +28,8 @@ public class CharacterController : MonoBehaviour
 
     PlayerState playerState;
 
+	public float gravityScale = 1.0f;
+
 	public GameObject lever = null;
 
     /// <summary>
@@ -75,7 +77,7 @@ public class CharacterController : MonoBehaviour
 			}
 			else
 			{
-				rigidbody2D.gravityScale = 1;
+				rigidbody2D.gravityScale = gravityScale;
 				
 			}
 
