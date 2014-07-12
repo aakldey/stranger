@@ -170,7 +170,8 @@ public class Room : MonoBehaviour {
 				if (p.entrySide == getRotationSide(point.getOppositeSide(), i)){
 					if (p.entryDir == getRotationDir(point.entryDir, i) && (point.canConnectWith.Count == 0 || point.canConnectWith.Find(a => (a.name == this.name)) != null || point.canConnectWith.Find(a => (a.name == "AllRooms")) != null) && (point.ignoreRooms.Find(a => (a.name == this.name)) == null) ) {
 						//Debug.Log("has to connect");
-						return true;
+						if(p.pointsToConnectWith.Count == 0 || p.pointsToConnectWith.Contains(point))
+							return true;
 					}
 				}
 			}
@@ -185,6 +186,8 @@ public class Room : MonoBehaviour {
 					if (p.getHotizontalFlipSide() == getRotationSide(point.getOppositeSide(), i) && (point.canConnectWith.Count == 0 || point.canConnectWith.Find(a => (a.name == this.name)) != null || point.canConnectWith.Find(a => (a.name == "AllRooms")) != null)&& (point.ignoreRooms.Find(a => (a.name == this.name)) == null)) {
 						if (p.getHorizontalFlipDir() == getRotationDir(point.entryDir, i)) {
 							//Debug.Log("has to connect");
+							if(p.pointsToConnectWith.Count == 0 || p.pointsToConnectWith.Contains(point))
+								return true;
 							return true;
 						}
 					}
@@ -201,6 +204,8 @@ public class Room : MonoBehaviour {
 					if (p.getVerticalFlipSide() == getRotationSide(point.getOppositeSide(), i) && (point.canConnectWith.Count == 0 || point.canConnectWith.Find(a => (a.name == this.name)) != null || point.canConnectWith.Find(a => (a.name == "AllRooms")) != null)&& (point.ignoreRooms.Find(a => (a.name == this.name)) == null)) {
 						if (p.getVerticalFlipDir() == getRotationDir(point.entryDir, i)) {
 							//Debug.Log("has to connect");
+							if(p.pointsToConnectWith.Count == 0 || p.pointsToConnectWith.Contains(point))
+								return true;
 							return true;
 						}
 					}

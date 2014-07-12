@@ -32,7 +32,7 @@ public class RoomManager : MonoBehaviour, IRoomManager {
 			 list = newRoom.getFreeEntryPoints().FindAll(a => (a.entrySide == getOppositeEntrySide(sender.entrySide)));
 			//Vector3 oldP = newRoom.gameObject.transform.position;
 			foreach(EntryPoint point in list) {
-				if (point.entryDir == sender.entryDir) {
+				if (point.entryDir == sender.entryDir && (sender.pointsToConnectWith.Contains(point) || sender.pointsToConnectWith.Count == 0)) {
                     GameObject root = newRoom.transform.parent.gameObject;
 					Debug.Log(root.name);
 					Vector3 tmp = root.transform.position - point.transform.position;

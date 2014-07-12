@@ -24,6 +24,8 @@ public class EntryPoint : MonoBehaviour {
 
 	public List<Room> canConnectWith = new List<Room>();
 	public List<Room> ignoreRooms = new List<Room>();
+
+	public List<EntryPoint> pointsToConnectWith = new List<EntryPoint>();
 	
 	// Use this for initializations
 	void Start () {
@@ -127,6 +129,7 @@ public class EntryPoint : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other) {
 		if(other.tag == "PlayerTrigger") {
 			//getRoom().RotateRight();
+		
 			if ((player.isFacingRight && entrySide == EntrySide.LEFT) || (!player.isFacingRight && entrySide == EntrySide.RIGHT) ||
 			    (player.isFacingUp && entrySide == EntrySide.DOWN) || (!player.isFacingUp && entrySide == EntrySide.UP)) {
 				
@@ -160,8 +163,8 @@ public class EntryPoint : MonoBehaviour {
 			if ((player.isFacingRight && entrySide == EntrySide.RIGHT) || (!player.isFacingRight && entrySide == EntrySide.LEFT) ||
 			    (player.isFacingUp && entrySide == EntrySide.UP) || (!player.isFacingUp && entrySide == EntrySide.DOWN)) {
 				IRoomManager manager = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomManager>();
-				Debug.Log(getRoom().name + " "+name);
-//				Debug.Log(connectedEntry.ToString());
+				//Debug.Log(getRoom().name + " "+name);
+//				//Debug.Log(connectedEntry.ToString());
 				list = connectedEntry.getRoom().getFreeEntryPoints();
 				foreach(EntryPoint point in list) {
 					manager.spawnRoom(point);

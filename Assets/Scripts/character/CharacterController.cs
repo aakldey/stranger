@@ -80,7 +80,10 @@ public class CharacterController : MonoBehaviour
 				rigidbody2D.gravityScale = gravityScale;
 				
 			}
-
+			if(rigidbody2D.velocity.y > 0.01)
+				isFacingUp = true; 
+			else
+				isFacingUp = false;
 
             //обращаемся к компоненту персонажа RigidBody2D. задаем ему скорость по оси Х, 
             //равную значению оси Х умноженное на значение макс. скорости
@@ -97,14 +100,6 @@ public class CharacterController : MonoBehaviour
             else if (move < 0 && isFacingRight)
                 Flip();
 
-			if (l > 0 && !isFacingUp)
-				isFacingUp = true;
-
-			if (l < 0 && isFacingUp)
-				isFacingUp = false;
-
-			if(isGrounded)
-				isFacingUp = false;
 		
         }
     }
