@@ -1,14 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Objects\Platform.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Levels\00_Stazis\StartPlatformTrigger.cs">
     <Files>
-      <File FileName="Assets\Scripts\Rooms\RoomManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\sound\MasterBus.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Levels\00_Stazis\SquaresStart.cs" Line="37" Column="2" />
-      <File FileName="Assets\Scripts\Levels\00_Stazis\FogParticles.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Door.cs" Line="19" Column="38" />
-      <File FileName="Assets\Scripts\Objects\Platform.cs" Line="19" Column="18" />
-      <File FileName="Assets\Scripts\Levels\00_Stazis\PlatformMove.cs" Line="20" Column="20" />
+      <File FileName="Assets\Scripts\Objects\Door.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Platform.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Levels\00_Stazis\PlatformMove.cs" Line="1" Column="1" />
+      <File FileName="Assets\TileBuilderPackage\Editor\GridWindow.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Rooms\EntryPoint.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Text\TextControll.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Text\ScreenText.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Text\ScreenTextTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Ladder.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Rooms\Room.cs" Line="1" Column="1" />
+      <File FileName="Assets\Editor\LadderEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Levels\00_Stazis\DoorsTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Levels\00_Stazis\StartPlatformTrigger.cs" Line="32" Column="20" />
+      <File FileName="Assets\Scripts\Levels\00_Stazis\ActivateDoorsTrigger.cs" Line="18" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

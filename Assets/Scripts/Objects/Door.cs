@@ -17,6 +17,7 @@ public class Door : MonoBehaviour {
 	void Update () {
 		if (opened != anim.GetBool("Triggered")) {
 			anim.SetBool("Triggered", opened);
+			audio.Play();
 		}
 	}
 }

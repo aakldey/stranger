@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using SpriteTile;
+using UnityEditor;
 
-
+[AddComponentMenu("Stranger/Room")]
 public class Room : MonoBehaviour {
 	
 	public Vector2 size;
@@ -21,6 +22,8 @@ public class Room : MonoBehaviour {
 	public bool randomHorizontal = false;
 
 	public bool randomVertical = false;
+
+	public bool inUse = false;
 
 	public new string name = "Room";
 
@@ -71,7 +74,7 @@ public class Room : MonoBehaviour {
 	}
 
 	public void RotateRight() {
-		foreach(EntryPoint p in points) {
+		foreach(EntryPoint p in getAllEntryPoints()) {
 			if(p.entrySide ==EntrySide.DOWN)
 				p.entrySide = 0;
 			else
@@ -100,7 +103,7 @@ public class Room : MonoBehaviour {
 
 
 		}
-		gameObject.transform.Rotate(0, 180, 0);
+		transform.Rotate(0, 180, 0);
 	}
 
 

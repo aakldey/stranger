@@ -126,9 +126,13 @@ public class GridWindow : EditorWindow {
 		if (LevelParent != null) {
 			return;
 		}
-				
+
+		GameObject go = new GameObject();
+		go.name = "NewRoom";
+
 		LevelParent = Instantiate(Resources.Load(@"[Prefabs]/TilePrefab"), Vector3.zero, Quaternion.identity) as GameObject;
 		LevelParent.name = "_LevelParent";
+		LevelParent.transform.parent = go.transform;
 	}
         
 	private void DeleteTileAlignerComponents() {

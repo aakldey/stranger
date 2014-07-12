@@ -22,7 +22,7 @@ TagManager:
   - Continue
   - About
   - Exit
-  - 
+  - Text
   - TransferTrigger
   - PlayerPivot
   - PlayerTrigger

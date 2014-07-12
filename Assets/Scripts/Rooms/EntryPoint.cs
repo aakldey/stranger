@@ -37,7 +37,10 @@ public class EntryPoint : MonoBehaviour {
 
 	void OnDrawGizmos() 
 	{
-		Gizmos.DrawIcon(transform.position, "entry.tif", false);
+		//Debug.Log(entrySide.ToString());
+		Vector3 pos = transform.position;
+		pos.x += GetComponent<BoxCollider2D>().center.x;
+		Gizmos.DrawIcon(pos, entryDir.ToString()+"_"+entrySide.ToString()+".tif", false);
 	}
 
 
@@ -132,11 +135,24 @@ public class EntryPoint : MonoBehaviour {
 				//Debug.Log(list.Count);
 				foreach(EntryPoint point in list) {
 					GameObject r = point.connectedEntry.getRoom().gameObject;
-					point.connectedEntry = null;
+
 					
 					if(r != null) {
-						//Debug.Log("deleting");
-						Destroy(r.transform.parent.gameObject);
+						if(r.GetComponent<Room>().inUse) {
+							//Debug.Log("deleting");
+	                        r.transform.parent.transform.position = new Vector3(-10000, -10000, -10000);
+							r.transform.localPosition = Vector3.zero;
+	                        r.GetComponent<Room>().inUse = false;
+	                        List<EntryPoint> ps = r.GetComponent<Room>().getAllEntryPoints();
+	                        foreach (EntryPoint e in ps) {
+	                            if(e.connectedEntry != null) {
+									e.connectedEntry.connectedEntry = null;
+	                            	e.connectedEntry = null;
+								}
+	                        }
+						}
+						//point.connectedEntry = null;
+                        //Destroy(r.transform.parent.gameObject);
 					}
 				}
 			}
@@ -144,9 +160,11 @@ public class EntryPoint : MonoBehaviour {
 			if ((player.isFacingRight && entrySide == EntrySide.RIGHT) || (!player.isFacingRight && entrySide == EntrySide.LEFT) ||
 			    (player.isFacingUp && entrySide == EntrySide.UP) || (!player.isFacingUp && entrySide == EntrySide.DOWN)) {
 				IRoomManager manager = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomManager>();
+				Debug.Log(getRoom().name + " "+name);
+//				Debug.Log(connectedEntry.ToString());
 				list = connectedEntry.getRoom().getFreeEntryPoints();
 				foreach(EntryPoint point in list) {
-					EntryPoint p = manager.spawnRoom(point);
+					manager.spawnRoom(point);
 				}
 			}
 
