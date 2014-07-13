@@ -1,15 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Objects\Platform.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UniTile\Editor\TileLayerEditor.cs">
     <Files>
+      <File FileName="Assets\UniTile\Editor\ObjectLayerEditor.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Rooms\EntryPoint.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Rooms\Room.cs" Line="275" Column="62" />
+      <File FileName="Assets\Scripts\Rooms\Room.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Character\CharacterController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Rooms\RoomManager.cs" Line="65" Column="30" />
+      <File FileName="Assets\Scripts\Rooms\RoomManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Levels\00_Stazis\ActivateDoorsTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Levels\00_Stazis\DoorsTrigger.cs" Line="24" Column="13" />
-      <File FileName="Assets\Editor\RoomEditor.cs" Line="56" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Platform.cs" Line="56" Column="3" />
+      <File FileName="Assets\Scripts\Levels\00_Stazis\DoorsTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Editor\RoomEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Platform.cs" Line="1" Column="1" />
+      <File FileName="Assets\UniTile\Editor\TileLayerEditor.cs" Line="1014" Column="10" />
+      <File FileName="Assets\Editor\BoxColliderEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Editor\LadderEditor.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

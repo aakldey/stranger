@@ -11,5 +11,7 @@ EditorBuildSettings:
     path: Assets/Scenes/old/StasisIntro.unity
   - enabled: 0
     path: Assets/Scenes/test.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/level_idea_1.unity
+  - enabled: 1
+    path: Assets/Scenes/Stazis1.unity
