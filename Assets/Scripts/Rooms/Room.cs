@@ -219,8 +219,9 @@ public class Room : MonoBehaviour {
 
 	public GameObject BuildLeftEntry() {
 		GameObject trigger = new GameObject();
-		trigger.name = "Left_Enter";
+		trigger.name = "LeftEnter";
 		trigger.transform.parent = gameObject.transform;
+		trigger.transform.position = gameObject.transform.position;
 		BoxCollider2D col = trigger.AddComponent<BoxCollider2D>();
 		col.isTrigger = true;
 		col.size = new Vector2(1, 3);
@@ -235,8 +236,9 @@ public class Room : MonoBehaviour {
 
 	public GameObject BuildRightEntry() {
 		GameObject trigger = new GameObject();
-		trigger.name = "Right_Enter";
+		trigger.name = "RightEnter";
 		trigger.transform.parent = gameObject.transform;
+		trigger.transform.position = gameObject.transform.position;
 		BoxCollider2D col = trigger.AddComponent<BoxCollider2D>();
 		col.isTrigger = true;
 		col.size = new Vector2(1, 3);
@@ -251,8 +253,9 @@ public class Room : MonoBehaviour {
 
 	public GameObject BuildDownEntry() {
 		GameObject trigger = new GameObject();
-		trigger.name = "Left_Enter";
+		trigger.name = "DownEnter";
 		trigger.transform.parent = gameObject.transform;
+		trigger.transform.position = gameObject.transform.position;
 		BoxCollider2D col = trigger.AddComponent<BoxCollider2D>();
 		col.isTrigger = true;
 		col.size = new Vector2(3, 0.2f);
@@ -267,8 +270,9 @@ public class Room : MonoBehaviour {
 
 	public GameObject BuildUpEntry() {
 		GameObject trigger = new GameObject();
-		trigger.name = "Left_Enter";
+		trigger.name = "UpEnter";
 		trigger.transform.parent = gameObject.transform;
+		trigger.transform.position = gameObject.transform.position;
 		BoxCollider2D col = trigger.AddComponent<BoxCollider2D>();
 		col.isTrigger = true;
 		col.size = new Vector2(3, 0.2f);
@@ -283,3 +287,4 @@ public class Room : MonoBehaviour {
 
 
 }
+

@@ -39,6 +39,7 @@ public class Platform : MonoBehaviour {
 					targetA = targetB;
 					targetB = tmp;
 					rigidbody2D.velocity = Vector2.zero;
+					audio.Stop();
 					Debug.Log ("Stop moving mypos = "+ Mathf.Abs(transform.localPosition.magnitude)+" targetPos = "+Mathf.Abs(targetB.transform.localPosition.magnitude));
 				} else if (looped) {
 					moving = false;
@@ -65,5 +66,6 @@ public class Platform : MonoBehaviour {
 		rigidbody2D.velocity = dir*speed;
 		Debug.Log("Move! vel= "+rigidbody2D.velocity);
 		moving = true;
+		audio.Play();
 	}
 }
