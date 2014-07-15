@@ -79,12 +79,12 @@ MonoBehaviour:
       width: 0
       height: 0
   - prefab: {fileID: 0}
-    prefabOffset: {x: 0, y: 0, z: 0}
+    prefabOffset: {x: .5, y: .5, z: 0}
     name: 
     value: 0
     properties: []
     resizable: 0
-    BoxCollider2D: 0
+    BoxCollider2D: 1
     boxLayer: 0
     boxMaterial: {fileID: 0}
     boxTag: Untagged
@@ -95,8 +95,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
+      width: 1
+      height: 1
   - prefab: {fileID: 0}
     prefabOffset: {x: 0, y: 0, z: 0}
     name: 
@@ -123,7 +123,7 @@ MonoBehaviour:
     properties: []
     resizable: 0
     BoxCollider2D: 1
-    boxLayer: 0
+    boxLayer: 12
     boxMaterial: {fileID: 0}
     boxTag: Untagged
     boxDepth: 64

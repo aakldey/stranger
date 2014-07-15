@@ -23,20 +23,20 @@ Material:
     m_Floats:
       data:
         first:
-          name: _Size
-        second: .660000026
-      data:
-        first:
           name: _Bias
-        second: .140000001
+        second: -.629999995
       data:
         first:
           name: _Shift
-        second: 100
+        second: 77.35849
+      data:
+        first:
+          name: _Size
+        second: .720000029
       data:
         first:
           name: _BlurSteps
-        second: 1
+        second: 100
       data:
         first:
           name: _Red

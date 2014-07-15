@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{43CDAAEB-A238-BD94-9F30-D12689BECB9F}</ProjectGuid>
+	<ProjectGuid>{7E191B5B-6A99-BC56-AEBC-959C795BDB60}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_5_2;UNITY_4_5;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;FXLAB_PRO</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,36 +39,177 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>E:/Stranger/UnityFull/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>E:/Stranger/UnityFull/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\SpriteTile Demos\Acorn Antics\Scripts\AcornControl.js" />
-     <Compile Include="Assets\SpriteTile Demos\Acorn Antics\Scripts\Manager.js" />
-     <Compile Include="Assets\SpriteTile Demos\Acorn Antics\Scripts\Rotate.js" />
-     <Compile Include="Assets\SpriteTile Demos\AnimatedTiles\AnimatedTiles.js" />
-     <Compile Include="Assets\SpriteTile Demos\Level Viewer\LevelViewer.js" />
-     <Compile Include="Assets\SpriteTile Demos\Procedural Level\Scripts\CameraFollow.js" />
-     <Compile Include="Assets\SpriteTile Demos\Procedural Level\Scripts\CharacterControl.js" />
-     <Compile Include="Assets\SpriteTile Demos\Procedural Level\Scripts\LevelControl.js" />
-     <Compile Include="Assets\SpriteTile Demos\TileDraw\TileDraw.js" />
-     <Compile Include="Assets\SpriteTile Demos\Trigger Demo\TriggerControl.js" />
-     <None Include="Assets\TileBuilderPackage\Resources\SaveData\_DefaultData.txt" />
-     <None Include="Assets\SpriteTile\UPDATE NOTE!.txt" />
-     <None Include="Assets\TileBuilderPackage\Resources\SaveData\EditorWindowSettings.txt" />
-     <None Include="Assets\SpriteTile\SpriteTile changelog.txt" />
-     <None Include="Assets\SpriteTile\Resources\Sprites-DefaultNonTransparent.shader" />
-     <None Include="Assets\TileBuilderPackage\Resources\SaveData\TagData.txt" />
-     <None Include="Assets\TileBuilderPackage\ChangeLog_TileBuilder.txt" />
-     <None Include="Assets\SpriteTile\Resources\Sprites-DiffuseNonTransparent.shader" />
-     <None Include="Assets\Shaders\MyShader.shader" />
-     <None Include="Assets\Shaders\SecondShader.shader" />
+     <Compile Include="Assets\SetMeshRendererLayer.js" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_Reflection_Refraction_Dispersion_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\FXLab.cginc" />
+     <None Include="Assets\FXLab\Shader\Water\Water.cginc" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_FlowMap_Reflection_Dispersion.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Refraction_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Reflection_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\Glass\Refraction.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Refraction_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_Reflection_Refraction_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\Glass\Refraction_Dispersion.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ShowAlphaChannel.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\Luminance.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowConeTap.shader" />
+     <None Include="Assets\FXLab\readme.txt" />
+     <None Include="Assets\FXLab\Shader\Water\Refraction_Dispersion.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\Noise.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SunShaftsComposite.shader" />
+     <None Include="Assets\FXLab\Shader\Shockwave\Shockwave.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionCurves.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ScreenSpaceAmbientObscurance.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Dispersion.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Reflection.shader" />
+     <None Include="Assets\FXLab\Shader\Distortion.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\DepthOfField.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\NFAA.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\SSAO.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Reflection_Refraction_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Reflection.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\ChromaticAberration.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Reflection_Refraction_Dispersion_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Reflection_Dispersion.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_Reflection.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\Sepia.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\VignetteShader.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\UnderWater.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\Scanlines.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlur.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MobileBloom.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Reflection_Dispersion.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\Pixelize.shader" />
+     <None Include="Assets\FXLab\Shader\Glass\Refraction_Blurred.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowCompose.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\MinMaxReduction.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\SSAA.shader" />
+     <None Include="Assets\FXLab\Shader\Particles\Alpha.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\RadialBlur.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Reflection_Refraction_Dispersion.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Dispersion_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_Reflection_Dispersion.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ContrastComposite.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset3.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\FisheyeShader.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Apply.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\frag_ao.cginc" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_Reflection_Refraction_Dispersion.shader" />
+     <None Include="Assets\FXLab\Shader\Glass\Simple.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Reflection_Refraction_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Dispersion.shader" />
+     <None Include="Assets\FXLab\Samples\Shader\FireBall.shader" />
+     <None Include="Assets\FXLab\Shader\Glass\Refraction_Dispersion_Blurred.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\Bloom.shader" />
+     <None Include="Assets\FXLab\Resources\Shader\DisplayFloatTexture.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_FlowMap_Reflection_Refraction_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfField34.shader" />
+     <None Include="Assets\FXLab\Resources\Shader\WorldNormal.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\Vignette.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Refraction_Dispersion.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_FlowMap_Reflection_Refraction.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MobileBlur.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Reflection_Refraction.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SSAOShader.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ConvertDepth.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionCurvesSimple.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Reflection_Refraction_Dispersion_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderYUV.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\Blur.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_FlowMap_Reflection_Refraction_Dispersion_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Refraction.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowEffectDownsample.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CreaseApply.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Refraction.shader" />
+     <None Include="Assets\FXLab\Resources\Shader\DisplayTexture.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ChromaticAberrationShader.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_FlowMap_Reflection_Decal.shader" />
+     <None Include="Assets\FXLab\Resources\Shader\PreciseGrabHeight.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlobalFog.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Dispersion_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Luminance.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_Reflection_Refraction.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionSelective.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\Bokeh34.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_FlowMap_Reflection.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Refraction_Dispersion_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CameraMotionBlurDX11.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
+     <None Include="Assets\UniTile\ReadMe.txt" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlurEffectConeTaps.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CameraMotionBlur.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\DLAA.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseAndGrainDX11.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Reflection_Refraction_Dispersion.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
+     <None Include="Assets\UniTile\Shaders\2D Art for iPhone.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_FlowMap_Reflection_Refraction_Dispersion.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableBlur.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlurClear.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionEffect.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GrayscaleEffect.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SepiaToneEffect.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\TwirlEffect.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VortexEffect.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Adaptation.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseAndGrain.shader" />
+     <None Include="Assets\FXLab\Resources\Shader\PreciseGrabDepth.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Reflection_Dispersion_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VignettingShader.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Tonemapper.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\MotionBlur.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAA2.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Simple.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_FlowMap_Reflection_Dispersion_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\DisplayTexture.shader" />
+     <None Include="Assets\FXLab\Samples\Shader\BlackHoleDiffuse.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrection3DLut.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_Reflection_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\EdgeDetectNormals.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\PrepareSunShaftsBlur.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\Blend.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlendModesOverlay.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SimpleClear.shader" />
+     <None Include="Assets\FXLab\Shader\Particles\Add.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Depth_Reflection_Dispersion_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Reflection_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\LightShafts.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAA3Console.shader" />
+     <None Include="Assets\FXLab\Shader\Water\Reflection_Refraction.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Refraction_Dispersion_Decal.shader" />
+     <None Include="Assets\FXLab\Shader\Water\FlowMap_Reflection_Dispersion_Decal.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset2.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
+     <None Include="Assets\FXLab\Shader\PostProcessing\SSAA.shader" />
+     <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="SpriteTile">
- <HintPath>Assets\Plugins\SpriteTile.dll</HintPath>
+ <HintPath>E:/Stranger/stranger/Assets/Plugins/SpriteTile.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{141C4132-BE22-10EA-99CD-050C1BE60F1D}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{2FE8C82C-3853-0655-F55D-802F16821B30}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
